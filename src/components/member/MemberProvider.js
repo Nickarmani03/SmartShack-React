@@ -1,28 +1,28 @@
 import React, { useState, createContext } from "react"
 
 // The context is imported and used by individual components that need data
-export const FamilyMemberContext = createContext()
+export const MemberContext = createContext()
 
 // This component establishes what data can be used.
-export const FamilyMemberProvider = (props) => {
+export const MemberProvider = (props) => {
 
-    const [familymembers, setFamilyMembers] = useState([])
+    const [members, setMembers] = useState([])
 
-    const getFamilyMembers = () => {
-        return fetch("http://localhost:8088/familymembers?_expand=location")
+    const getMembers = () => {
+        return fetch("http://localhost:8088/members?_expand=location")
         .then(res => res.json())
-        .then(setFamilyMembers)
+        .then(setMembers)
     }
 
-    const addFamilyMember = familyMemberObj => {
-        return fetch("http://localhost:8088/familymembers", {
+    const addMember = memberObj => {
+        return fetch("http://localhost:8088/members", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(familyMemberObj)
+            body: JSON.stringify(memberObj)
         })
-        .then(getFamilyMembers)
+        .then(getMembers)
     }
 
     /*
@@ -32,10 +32,10 @@ export const FamilyMemberProvider = (props) => {
         allows any child elements to access them.
     */
     return (
-        <FamilyMemberContext.Provider value={{
-            familymembers, getFamilyMembers, addFamilyMember
+        <MemberContext.Provider value={{
+            members, getMembers, addMember
         }}>
             {props.children}
-        </FamilyMemberContext.Provider>
+        </MemberContext.Provider>
     )
 }

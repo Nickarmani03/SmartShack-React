@@ -18,7 +18,7 @@ export const DeviceList = () => {
             {
                 devices.map(device => {
                     return (
-                        <div className="device" key={devices.id} id={`device--${device.id}`}>
+                        <div className="device" key={device.id} id={`device--${device.id}`}>
                             <div className="device__name">
                                 Name: {device.name}
                             </div>
