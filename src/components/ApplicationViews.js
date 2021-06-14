@@ -3,8 +3,8 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { DeviceProvider } from "./device/DeviceProvider"
 import { DeviceList } from "./device/DeviceList"
-import { FamilyMemberProvider } from "./familymember/FamilyMemberProvider"
-import { FamilyMemberList } from "./familymember/FamilyMemberList"
+import { MemberProvider } from "./member/MemberProvider"
+import { MemberList } from "./member/MemberList"
 import { RoomProvider } from "./room/RoomProvider"
 import { RoomList } from "./room/RoomList"
 
@@ -18,15 +18,21 @@ export const ApplicationViews = () => {
                 </Route>
             </DeviceProvider>
 
-            
-            <FamilyMemberProvider>
-                <Route path="/familymember">
-                    <FamilyMemberList />
+            <DeviceProvider>
+                <Route exact path="/devices">
+                    <DeviceList />
                 </Route>
-            </FamilyMemberProvider>
+            </DeviceProvider>
+
+            
+            <MemberProvider>
+                <Route path="/members">
+                    <MemberList />
+                </Route>
+            </MemberProvider>
 
             <RoomProvider>
-                <Route path="/room">
+                <Route path="/rooms">
                     <RoomList />
                 </Route>
             </RoomProvider>

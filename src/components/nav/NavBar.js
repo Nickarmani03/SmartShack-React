@@ -12,7 +12,7 @@ export const NavBar = (props) => {
                 <Link className="navbar__link" to="/devices">Devices</Link>
             </li>
             <li className="navbar__item">
-                <Link className="navbar__link" to="/familymembers">Family Members</Link>
+                <Link className="navbar__link" to="/members">Family Members</Link>
             </li>
             <li className="navbar__item">
                 <Link className="navbar__link" to="/rooms">Rooms</Link>
@@ -20,6 +20,15 @@ export const NavBar = (props) => {
             {/* <li className="navbar__item">
                 <Link className="navbar__link" to="/employees">Employees</Link>
             </li> */}
+            <li className="navbar__item">
+                <Link className="navbar__link" to="/login"
+                    onClick={ //allows the user to logout by removing the current user from the local storage
+                        (event) => {
+                            localStorage.removeItem("smartShack_user")
+                        }
+                    }
+                >Logout</Link>
+            </li>
         </ul>
     )
 }
