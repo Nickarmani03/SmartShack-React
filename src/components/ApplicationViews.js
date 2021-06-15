@@ -8,6 +8,7 @@ import { MemberList } from "./member/MemberList"
 import { RoomProvider } from "./room/RoomProvider"
 import { RoomList } from "./room/RoomList"
 import { DeviceForm } from "./device/DeviceForm"
+import { RoomForm } from "./room/RoomForm"
 
 export const ApplicationViews = () => {
     return (
@@ -29,8 +30,8 @@ export const ApplicationViews = () => {
                         <Route exact path="/devices/create">
                             <DeviceForm />
                         </Route>
-                
-                </RoomProvider>
+
+                    </RoomProvider>
                 </MemberProvider>
             </DeviceProvider>
 
@@ -42,9 +43,14 @@ export const ApplicationViews = () => {
             </MemberProvider>
 
             <RoomProvider>
+            <DeviceProvider>
                 <Route path="/rooms">
                     <RoomList />
                 </Route>
+                <Route exact path="/rooms/create">
+                    <RoomForm />
+                </Route>
+                </DeviceProvider>
             </RoomProvider>
         </>
     )
