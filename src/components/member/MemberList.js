@@ -25,7 +25,7 @@ export const MemberList = () => {
                             <div className="familyMember__type">
                                 Type: {member.type}
                             </div>
-                            
+
                         </div>
                     )
                 })

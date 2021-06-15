@@ -10,8 +10,8 @@ export const MemberProvider = (props) => {
 
     const getMembers = () => {
         return fetch("http://localhost:8088/members?_expand=location")
-        .then(res => res.json())
-        .then(setMembers)
+            .then(res => res.json())
+            .then(setMembers)
     }
 
     const addMember = memberObj => {
@@ -22,7 +22,7 @@ export const MemberProvider = (props) => {
             },
             body: JSON.stringify(memberObj)
         })
-        .then(getMembers)
+            .then(getMembers)
     }
 
     /*

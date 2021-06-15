@@ -7,11 +7,12 @@ import { MemberProvider } from "./member/MemberProvider"
 import { MemberList } from "./member/MemberList"
 import { RoomProvider } from "./room/RoomProvider"
 import { RoomList } from "./room/RoomList"
+import { DeviceForm } from "./device/DeviceForm"
 
 export const ApplicationViews = () => {
     return (
         <>
-           
+
             <DeviceProvider>
                 <Route exact path="/">
                     <DeviceList />
@@ -19,12 +20,21 @@ export const ApplicationViews = () => {
             </DeviceProvider>
 
             <DeviceProvider>
-                <Route exact path="/devices">
-                    <DeviceList />
-                </Route>
+                <MemberProvider>
+                    <RoomProvider>
+                        <Route exact path="/devices">
+                            <DeviceList />
+                        </Route>
+
+                        <Route exact path="/devices/create">
+                            <DeviceForm />
+                        </Route>
+                
+                </RoomProvider>
+                </MemberProvider>
             </DeviceProvider>
 
-            
+
             <MemberProvider>
                 <Route path="/members">
                     <MemberList />

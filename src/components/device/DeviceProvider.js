@@ -9,9 +9,9 @@ export const DeviceProvider = (props) => {
     const [devices, setDevices] = useState([])
 
     const getDevices = () => {
-        return fetch("http://localhost:8088/devices?_expand=location")
-        .then(res => res.json())
-        .then(setDevices)
+        return fetch("http://localhost:8088/devices?_expand=room")
+            .then(res => res.json())
+            .then(setDevices)
     }
 
     const addDevice = deviceObj => {
@@ -22,7 +22,7 @@ export const DeviceProvider = (props) => {
             },
             body: JSON.stringify(deviceObj)
         })
-        .then(getDevices)
+            .then(response => response.json())
     }
 
     /*
@@ -32,10 +32,9 @@ export const DeviceProvider = (props) => {
         allows any child elements to access them.
     */
     return (
-        <DeviceContext.Provider value={{
-            devices, getDevices, addDevice
-        }}>
-            {props.children}
+        <DeviceContext.Provider value={
+            { devices, getDevices, addDevice }
+        }>{props.children}
         </DeviceContext.Provider>
     )
 }
