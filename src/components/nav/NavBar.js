@@ -24,7 +24,7 @@ export const NavBar = (props) => {
                 <Link className="navbar__link" to="/login"
                     onClick={ //allows the user to logout by removing the current user from the local storage
                         (event) => {
-                            localStorage.removeItem("smartShack_user")
+                            localStorage.removeItem("smartshack_member")
                         }
                     }
                 >Logout</Link>

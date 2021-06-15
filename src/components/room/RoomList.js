@@ -16,7 +16,11 @@ export const RoomList = () => {
 
     return (
         <>
-            <h2>Rooms</h2>
+            <h2>Rooms</h2> 
+            <button className="form" onClick={
+                () => history.push("/rooms/create")}>
+                Add New Room
+            </button>
             <section className="rooms">{
                     rooms.map(room => {
                         return (
@@ -32,10 +36,7 @@ export const RoomList = () => {
                     })
                 }
             </section>
-            <button className="form" onClick={
-                () => history.push("/rooms/create")}>
-                Add New Room
-            </button>
+           
         </>
     )
 }
