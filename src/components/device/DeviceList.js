@@ -18,7 +18,11 @@ export const DeviceList = () => {
     return (
         <>
             <h2>Devices</h2>
-          
+           <button onClick={
+                () => history.push("/devices/create")
+            }>
+                Add New Device
+            </button>
             <section className="devices">
                 {
                     devices.map(device => {
@@ -38,11 +42,7 @@ export const DeviceList = () => {
                     })
                 }
             </section>
-            <button onClick={
-                () => history.push("/devices/create")
-            }>
-                Add New Device
-            </button>
+           
         </>
     )
 }

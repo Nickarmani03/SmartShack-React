@@ -18,6 +18,10 @@ export const MemberList = () => {
     return (
         <>
         <h2>Family Members</h2>
+        <button className="form" onClick={
+                () => history.push("/members/create")}>
+                Add New Member
+            </button>
         <section className="familyMembers">
             {
                 members.map(member => {
@@ -38,10 +42,7 @@ export const MemberList = () => {
                 })
             }
         </section>
-        <button className="form" onClick={
-                () => history.push("/members/create")}>
-                Add New Member
-            </button>
+        
         </>
     )
 }
