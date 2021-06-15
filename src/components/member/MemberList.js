@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react"
 import { MemberContext } from "./MemberProvider"
+// import { Avatar1 } from "../../IMG/44554.PNG"
 import "./Member.css"
 
 export const MemberList = () => {
@@ -23,8 +24,11 @@ export const MemberList = () => {
                                 Name: {member.name}
                             </div>
                             <div className="familyMember__type">
-                                Type: {member.type}
+                                Type: {member.name}
                             </div>
+                            {/* <div className="familyMember__type">
+                                Picture: <img src={ Avatar1 }/>
+                            </div> */}
 
                         </div>
                     )

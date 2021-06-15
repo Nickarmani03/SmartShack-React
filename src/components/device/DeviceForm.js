@@ -72,7 +72,7 @@ export const DeviceForm = () => {
 
     return (
         <>
-            <form className="DeviceForm">
+            <form className="deviceForm">
                 <h2 className="deviceForm__title">Have a new Device?</h2>
                 <fieldset>
                     <div className="form-group">
