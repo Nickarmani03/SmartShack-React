@@ -12,3 +12,16 @@
       text-align: center;
       font-family: "Comfortaa", Arial, sans-serif;
   }
+  
+  .memberForm {
+    margin-left: 25%;
+    margin-right:25%;
+    width: 50%;
+    text-align: center;
+  }
+  .form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
