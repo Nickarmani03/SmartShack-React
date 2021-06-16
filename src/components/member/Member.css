@@ -25,3 +25,9 @@
     margin-right: auto;
     text-align: left;
   }
+
+  .memberForm__title{
+    border-radius: 5px;
+    background-color: black;
+    opacity: .8;
+  }

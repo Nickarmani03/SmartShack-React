@@ -64,6 +64,7 @@ export const RoomForm = () => {
     }
 
     return (
+        <>
         <form className="roomForm">
             <h2 className="roomForm__title">New Room</h2>
             <fieldset>
@@ -89,5 +90,6 @@ export const RoomForm = () => {
                 Save room
             </button>
         </form>
+        </>
     )
 }
