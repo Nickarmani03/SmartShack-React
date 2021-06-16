@@ -9,7 +9,7 @@ export const DeviceProvider = (props) => {
     const [devices, setDevices] = useState([])
 
     const getDevices = () => {
-        return fetch("http://localhost:8088/devices?_expand=room")
+        return fetch("http://localhost:8088/devices?_embed=room&_embed=members")
             .then(res => res.json())
             .then(setDevices)
     }

@@ -66,10 +66,10 @@ export const MemberForm = () => {
 
     return (
         <form className="memberForm">
-            <h2 className="memberForm__title">New member</h2>
+            <h2 className="memberForm__title">Add a New member</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">New member Name:  </label>
+                    <label htmlFor="name"> Name:  </label>
                     <input type="text" id="name" required autoFocus className="form-control" placeholder="Enter member Name" value={member.name} onChange={handleControlledInputChange} />
                 </div>
             </fieldset>

@@ -3,6 +3,9 @@
     flex-wrap: nowrap;
     justify-content: left;
     overflow: hidden;
+    background-color: rgb(78, 129, 233);
+    color: #1122cc;
+    padding: 1em;
   /* background-color: #333;
   position: fixed;
   bottom: 0;
@@ -19,4 +22,9 @@
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px; */
+}
+
+.navbar__link{
+  color: black;
+  text-shadow: #1122cc;
 }
