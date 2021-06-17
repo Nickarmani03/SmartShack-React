@@ -45,33 +45,39 @@ export const ApplicationViews = () => {
 
 
             <MemberProvider>
-                <Route exact path="/members">
-                    <MemberList />
-                </Route>
-                <Route exact path="/members/create">
-                    <MemberForm />
-                </Route>
+                <RoomProvider>
+                    <MemberProvider>
+                        <Route exact path="/members">
+                            <MemberList />
+                        </Route>
+                        <Route exact path="/members/create">
+                            <MemberForm />
+                        </Route>
 
-                <Route exact path="/members/detail/:memberId(\d+)">
+                        <Route exact path="/members/detail/:memberId(\d+)">
                             <MemberDetail />
                         </Route>
+                    </MemberProvider>
+                </RoomProvider>
             </MemberProvider>
 
             <RoomProvider>
                 <DeviceProvider>
-                    <Route
-                        exact path="/rooms">
-                        <RoomList />
-                    </Route>
+                    <MemberProvider>
+                        <Route
+                            exact path="/rooms">
+                            <RoomList />
+                        </Route>
 
-                    <Route exact path="/rooms/create">
-                        <RoomForm />
-                    </Route>
+                        <Route exact path="/rooms/create">
+                            <RoomForm />
+                        </Route>
 
-                    <Route
-                        exact path="/rooms/detail/:roomId(\d+)">
-                        <RoomDetail />
-                    </Route>
+                        <Route
+                            exact path="/rooms/detail/:roomId(\d+)">
+                            <RoomDetail />
+                        </Route>
+                    </MemberProvider>
                 </DeviceProvider>
             </RoomProvider>
         </>

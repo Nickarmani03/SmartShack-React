@@ -9,9 +9,9 @@ export const RoomProvider = (props) => {
     const [rooms, setRooms] = useState([])
 
     const getRooms = () => {
-        return fetch("http://localhost:8088/rooms?_expand=location")
+        return fetch("http://localhost:8088/rooms?_embed=members&_embed=devices") // & is a way to limit the response returned
         .then(res => res.json())
-        .then(setRooms)
+        .then(setRooms) //changes the variable. updates the state
     }
 
     const addRoom = roomObj => {
@@ -24,6 +24,18 @@ export const RoomProvider = (props) => {
         })
         .then(getRooms)
     }
+    const releaseRoom = roomId => {
+        return fetch(`http://localhost:8088/rooms/${roomId}`, {
+            method: "DELETE"
+        })
+            .then(getRoomById)
+    }
+
+    const getRoomById = (roomId) => {
+        return fetch(
+          `http://localhost:8088/rooms/${roomId}?_embed=members&_embed=devices`
+        ).then((res) => res.json());
+      };
 
     /*
         You return a context provider which has the
@@ -32,9 +44,9 @@ export const RoomProvider = (props) => {
         allows any child elements to access them.
     */
     return (
-        <RoomContext.Provider value={{
-            rooms, getRooms, addRoom
-        }}>
+        <RoomContext.Provider value={
+            { rooms, getRooms, addRoom, getRoomById, releaseRoom }
+        }>
             {props.children}
         </RoomContext.Provider>
     )

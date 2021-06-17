@@ -16,9 +16,15 @@ export const DeviceForm = () => {
     Define the intial state of the form inputs with useState()
     */
 
-    const [device, setDevice] = useState({
+    const [device, setDevices] = useState({
         name: "",
         type: "",
+        imageURL:"",
+        description:"",
+        ipAddress:"",
+        isBluetooth:"",
+        isWifi:"",
+        dateAdded:"",
         roomId: 0,
         memberId: 0
     });
@@ -44,7 +50,7 @@ export const DeviceForm = () => {
         using object bracket notation. */
         newDevice[event.target.id] = event.target.value
         // update state
-        setDevice(newDevice)
+        setDevices(newDevice)
     }
 
     const handleClickSavedevice = (event) => {
@@ -62,8 +68,14 @@ export const DeviceForm = () => {
             const newDevice = {
                 name: device.name,
                 type: device.type,
+                imageURL: device.imageURL,
+                description: device.description,
+                ipAddress: device.ipAddress,
+                // isBluetooth: boolean,
+                // isWifi: boolean,
+                //dateAdded: device.date,
                 roomId: roomId,
-                memberId: memberId
+                memberId: memberId,
             }
             addDevice(newDevice)
                 .then(() => history.push("/devices"))
@@ -86,6 +98,27 @@ export const DeviceForm = () => {
                         <input type="text" id="type" required autoFocus className="form-control" placeholder="device type" value={device.type} onChange={handleControlledInputChange} />
                     </div>
                 </fieldset>
+                <fieldset>
+                <div className="form-group">
+                    <label htmlFor="text">Paste image URL:</label>
+                    <input type="text" id="imageURL" required autoFocus className="form-control" placeholder="Image URL from webpage" value={device.imageURL} onChange={handleControlledInputChange} />
+                </div>
+            </fieldset>
+
+            <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="name">Device Description:  </label>
+                        <input type="text" id="description" required autoFocus className="form-control" placeholder="describe your device" value={device.description} onChange={handleControlledInputChange} />
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="name">Device IP Address:  </label>
+                        <input type="text" id="ipAddress" required autoFocus className="form-control" placeholder="ipAddress" value={device.ipAddress} onChange={handleControlledInputChange} />
+                    </div>
+                </fieldset>
+
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="room">Assign to a Room:   </label>

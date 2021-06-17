@@ -14,7 +14,7 @@ export const MemberForm = () => {
     Define the intial state of the form inputs with useState()
     */
 
-    const [member, setMember] = useState({
+    const [member, setMembers] = useState({
     });
 
     const history = useHistory();
@@ -38,7 +38,7 @@ export const MemberForm = () => {
         using object bracket notation. */
         newMember[event.target.id] = event.target.value
         // update state
-        setMember(newMember)
+        setMembers(newMember)
     }
 
     const handleClickSavemember = (event) => {

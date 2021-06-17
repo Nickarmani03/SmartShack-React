@@ -4,26 +4,32 @@ import "./Member.css"
 import { useParams, useHistory } from "react-router-dom"
 
 export const MemberDetail = () => {
-    const { members } = useContext(MemberContext)
-    const [ member, setMember ] = useState({ room: {}})
+    const { getMemberById, releaseMember } = useContext(MemberContext)
+    const [ myMember, setMembers ] = useState({ room: {}})
 
-    /*
-        Given the example URL above, this will store the value
-        of 5 in the memberId variable
-    */
+
     const { memberId } = useParams()
 
-    const history = useHistory()
+    
 
     useEffect(() => {
-        const thisMember = members.find(a => a.id === memberId) || { room: {}}
+        getMemberById(parseInt(memberId)
+        ).then(member => { setMembers(member) })
+    }, [memberId])
 
-        setMember(thisMember)}, [memberId])
+const history = useHistory()
+
+const handleRelease = () => {
+    releaseMember(myMember.id).then(() => {
+      history.push("/members");
+    })
+  }
 
     return (
-        <section className="member" key={member.id}>
-        <h3 className="member__name"> {member.name} </h3>
-        <div className="member__room"> Room: {member.room.name} </div>
+        <section className="member" key={myMember.id}>
+        <h3 className="member__name"> {myMember.name} </h3>
+        <div className="member__room"> Room: {myMember.room.name} </div>
+        <button onClick={handleRelease}>Remove Family Member</button>
         {/* <button onClick={() => {
             history.push(`/members/edit/${member.id}`)
         }}>Edit</button> */}

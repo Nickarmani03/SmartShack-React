@@ -9,7 +9,7 @@ export const DeviceProvider = (props) => {
     const [devices, setDevices] = useState([])
 
     const getDevices = () => {
-        return fetch("http://localhost:8088/devices?_embed=room&_embed=members")
+        return fetch("http://localhost:8088/devices?_expand=member&_expand=room&_sort=room.id")
             .then(res => res.json())
             .then(setDevices)
     }
@@ -25,15 +25,27 @@ export const DeviceProvider = (props) => {
             .then(response => response.json())
     }
 
+    const releaseDevice = deviceId => {
+        return fetch(`http://localhost:8088/devices/${deviceId}`, {
+            method: "DELETE"
+        })
+            .then(getDeviceById)
+    }
+
+    const getDeviceById = deviceId => {
+        return fetch(`http://localhost:8088/devices/${deviceId}?_expand=member&_expand=room&_sort=room.id`)
+            .then(res => res.json())
+    }
+
     /*
         You return a context provider which has the
         `devices` state, `getdevices` function,
-        and the `adddevice` function as keys. This
+        and the `addDevice` function as keys. This
         allows any child elements to access them.
     */
     return (
         <DeviceContext.Provider value={
-            { devices, getDevices, addDevice }
+            { devices, getDevices, addDevice, releaseDevice, getDeviceById}
         }>{props.children}
         </DeviceContext.Provider>
     )

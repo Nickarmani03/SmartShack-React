@@ -5,10 +5,16 @@
   }
   
   .room {
-      flex-basis: 28%;
-      margin: 1em;
-      padding: 1em;
-      border: 1px solid rgb(50, 20, 155);
+    flex-basis: 28%;
+    margin: 1em;
+    padding: 1em;
+    border: 5px solid rgb(50, 20, 155);
+    /* background-color:black; */
+    background-color: rgb(93, 175, 230);
+   color: #fff;
+    opacity: .9;
+    text-align: center;
+    font-family: "Comfortaa", Arial, sans-serif;
   }
 
   .roomForm {
@@ -17,6 +23,7 @@
     width: 50%;
     text-align: center;
   }
+  
   .form {
     display: inline-block;
     margin-left: auto;
@@ -28,4 +35,14 @@
     border-radius: 5px;
     background-color: black;
     opacity: .8;
+  }
+
+  button {
+    background-color: #4864e0;
+    color: blue;
+    font-family: "Comfortaa", Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
   }

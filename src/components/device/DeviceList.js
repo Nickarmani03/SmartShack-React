@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react"
 import { useHistory } from 'react-router-dom'
-//import { DeviceDetail } from "./DeviceDetail"
 import { Link } from "react-router-dom"
 import { DeviceContext } from "./DeviceProvider"
 import "./Device.css"

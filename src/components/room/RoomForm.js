@@ -14,7 +14,7 @@ export const RoomForm = () => {
     Define the intial state of the form inputs with useState()
     */
 
-    const [room, setRoom] = useState({
+    const [room, setRooms] = useState({
     });
 
     const history = useHistory();
@@ -38,7 +38,7 @@ export const RoomForm = () => {
         using object bracket notation. */
         newRoom[event.target.id] = event.target.value
         // update state
-        setRoom(newRoom)
+        setRooms(newRoom)
     }
 
     const handleClickSaveRoom = (event) => {
