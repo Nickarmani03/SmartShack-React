@@ -9,7 +9,7 @@ export const MemberProvider = (props) => {
     const [members, setMembers] = useState([])
 
     const getMembers = () => {
-        return fetch("http://localhost:8088/members?_expand=location")
+        return fetch("http://localhost:8088/members?_embed=room")
             .then(res => res.json())
             .then(setMembers)
     }
@@ -25,15 +25,21 @@ export const MemberProvider = (props) => {
             .then(getMembers)
     }
 
-    /*
-        You return a context provider which has the
-        `FamilyMembers` state, `getFamilyMembers` function,
-        and the `addFamilyMember` function as keys. This
-        allows any child elements to access them.
-    */
+    const releaseMember = memberId => {
+        return fetch(`http://localhost:8088/members/${memberId}`, {
+            method: "DELETE"
+        })
+            .then(getMemberById)
+    }
+
+    const getMemberById = memberId => {
+        return fetch(`http://localhost:8088/members/${memberId}?_embed=room`)
+            .then(res => res.json())
+    }
+
     return (
         <MemberContext.Provider value={{
-            members, getMembers, addMember
+            members, getMembers, addMember, releaseMember, getMemberById
         }}>
             {props.children}
         </MemberContext.Provider>

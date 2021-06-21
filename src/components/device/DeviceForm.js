@@ -1,122 +1,176 @@
 import React, { useContext, useEffect, useState } from "react"
 import { RoomContext } from "../room/RoomProvider"
-import { DeviceContext } from "../device/DeviceProvider"
+import { DeviceContext } from "./DeviceProvider"
 import { MemberContext } from "../member/MemberProvider"
 import "./Device.css"
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 export const DeviceForm = () => {
-    const { addDevice } = useContext(DeviceContext)
-    const { rooms, getRooms } = useContext(RoomContext)
-    const { members, getMembers } = useContext(MemberContext)
+  const { addDevice, getDeviceById, updateDevice } = useContext(DeviceContext) // allows it to use the data
+  const { rooms, getRooms } = useContext(RoomContext)
+  const { members, getMembers } = useContext(MemberContext)
 
-    /*
-    With React, we do not target the DOM with `document.querySelector()`. Instead, our return (render) reacts to state or props.
-  
-    Define the intial state of the form inputs with useState()
-    */
+  //for edit, hold on to state of device in this view
+  const [device, setDevices] = useState({}) //returns a pair: the current state value and a function that lets you update it.
 
-    const [device, setDevice] = useState({
-        name: "",
-        type: "",
-        roomId: 0,
-        memberId: 0
-    });
+  //wait for data before button is active
+  const [isLoading, setIsLoading] = useState(true);
 
-    const history = useHistory();
+  const { deviceId } = useParams()// can capture the variable name. 
+  // used when there's a dynamic route to capture the primary key at the end of the route in Application views.
+// use the useParams hook to deconstruct the deviceId and use it in this component
 
-    /*
-    Reach out to the world and get members state
-    and room state on initialization.
-    */
-    useEffect(() => {
-        getMembers().then(getRooms)
-    }, [])
 
+  const history = useHistory()// force a url change when the button is clicked. returns a value
+
+
+  //when field changes, update state. This causes a re-render and updates the view.
+  //Controlled component
+  const handleControlledInputChange = (event) => {
+    //When changing a state object or array,
+    //always create a copy make changes, and then set state.
+    const newDevice = { ...device }
+    //device is an object with properties.
+    //set the property to the new value
+    newDevice[event.target.id] = event.target.value
+    //update state
+    setDevices(newDevice)
+  }
+
+  const handleSaveDevice = () => {
+    if (parseInt(device.roomId) === 0) {
+      window.alert("Please select a room")
+    } else {
+      //disable the button - no extra clicks
+      setIsLoading(true);
+      if (deviceId) {
+        //PUT - updates it
+        updateDevice({
+          id: device.id,
+          name: device.name,
+          type: device.type,
+          imageURL: device.imageURL,
+          description: device.description,
+          ipAddress: device.ipAddress,
+          dateAdded: device.dateAdded,
+          roomId: parseInt(device.roomId),
+          memberId: parseInt(device.memberId)
+        })
+          .then(() => history.push(`/devices/detail/${device.id}`))
+      } else {
+        //POST - adds it
+        addDevice({
+          name: device.name,
+          type: device.type,
+          imageURL: device.imageURL,
+          description: device.description,
+          ipAddress: device.ipAddress,
+          dateAdded: device.dateAdded,
+          roomId: parseInt(device.roomId),
+          memberId: parseInt(device.memberId)
+        })
+          .then(() => history.push("/devices"))
+      }
+    }
+  }
+
+  // Get members and rooms. If deviceId is in the URL, getDeviceById
+  useEffect(() => { //runs initially once. then it will run every time the location state changes
     //when a field changes, update state. The return will re-render and display based on the values in state
-    //Controlled component
-    const handleControlledInputChange = (event) => {
-        /* When changing a state object or array,
-        always create a copy, make changes, and then set state.*/
-        const newDevice = { ...device }
-        /* device is an object with properties.
-        Set the property to the new value
-        using object bracket notation. */
-        newDevice[event.target.id] = event.target.value
-        // update state
-        setDevice(newDevice)
-    }
+    getMembers().then(getRooms).then(() => {
+      if (deviceId) {
+        getDeviceById(deviceId)
+          .then(device => {
+            setDevices(device)
+            setIsLoading(false)
+          })
+      } else {
+        setIsLoading(false)
+      }
+    })
+  }, [])
 
-    const handleClickSavedevice = (event) => {
-        event.preventDefault() //Prevents the browser from submitting the form
+  //since state controlls this component, we no longer need
+  //useRef(null) or ref
 
-        const roomId = parseInt(device.roomId)
-        const memberId = parseInt(device.memberId)
+  return (
+    <form className="deviceForm">
+      <h2 className="deviceForm__title">New device</h2>
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="deviceName">Device name: </label>
+          <input type="text" id="name" name="name" required autoFocus className="form-control"
+            placeholder="device name"
+            onChange={handleControlledInputChange}
+            value={device.name} />
+        </div>
+      </fieldset>
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="name">Type of Device:  </label>
+          <input type="text" id="type" name="type" required autoFocus className="form-control" placeholder="device type" value={device.type} onChange={handleControlledInputChange} />
+        </div>
+      </fieldset>
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="text">Paste image URL:</label>
+          <input type="text" id="imageURL" name="imageURL" required autoFocus className="form-control" placeholder="Image URL from webpage" value={device.imageURL} onChange={handleControlledInputChange} />
+        </div>
+      </fieldset>
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="name">Device Description:  </label>
+          <input type="text" id="description" required autoFocus className="form-control" placeholder="describe your device" value={device.description} onChange={handleControlledInputChange} />
+        </div>
+      </fieldset>
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="name">Device IP Address:  </label>
+          <input type="text" id="ipAddress" name="ipAddress" required autoFocus className="form-control" placeholder="ipAddress" value={device.ipAddress} onChange={handleControlledInputChange} />
+        </div>
+      </fieldset>
 
-        if (roomId === 0 || memberId === 0) {
-            window.alert("Please select a room and a family member")
-        } else {
-            //Invoke addDevice passing the new device object as an argument
-            //Once complete, change the url and display the device list
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="date">Date Added:  </label>
+          <input type="date" id="dateAdded" name="dateAdded" required autoFocus className="form-control" placeholder="Date Added" value={device.dateAdded} onChange={handleControlledInputChange} />
+        </div>
+      </fieldset>
 
-            const newDevice = {
-                name: device.name,
-                type: device.type,
-                roomId: roomId,
-                memberId: memberId
-            }
-            addDevice(newDevice)
-                .then(() => history.push("/devices"))
-        }
-    }
-
-    return (
-        <>
-            <form className="deviceForm">
-                <h2 className="deviceForm__title">Have a new Device?</h2>
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="name">Device name:  </label>
-                        <input type="text" id="name" required autoFocus className="form-control" placeholder="device name" value={device.name} onChange={handleControlledInputChange} />
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="name">Device type:  </label>
-                        <input type="text" id="type" required autoFocus className="form-control" placeholder="device type" value={device.type} onChange={handleControlledInputChange} />
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="room">Assign to a Room:   </label>
-                        <select name="roomId" id="roomId" className="form-control" value={device.roomId} onChange={handleControlledInputChange}>
-                            <option value="0">Select a Room</option>
-                            {rooms.map(l => (
-                                <option key={l.id} value={l.id}>
-                                    {l.name}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="memberId">Family Member: </label>
-                        <select name="" id="memberId" className="form-control" value={device.memberId} onChange={handleControlledInputChange}>
-                            <option value="0">Select a Family Member</option>
-                            {members.map(c => (
-                                <option key={c.id} value={c.id}>
-                                    {c.name}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-                </fieldset>
-                <button className="btn btn-primary" onClick={handleClickSavedevice}>
-                    Save Device
-                </button>
-            </form>
-        </>
-
-    )
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="room">Assign to room: </label>
+          <select value={device.roomId} name="roomId" id="roomId" className="form-control" onChange={handleControlledInputChange}>
+            <option value="0">Select a room</option>
+            {rooms.map(l => (
+              <option key={l.id} value={l.id}>
+                {l.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="member">Family Member: </label>
+          <select value={device.memberId} name="" id="memberId" className="form-control" onChange={handleControlledInputChange}>
+            <option value="0">Select a member</option>
+            {members.map(c => (
+              <option key={c.id} value={c.id}>
+                {c.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      </fieldset>
+      <button className="btn btn-primary"
+        disabled={isLoading}
+        onClick={event => {
+          event.preventDefault() // Prevent browser from submitting the form and refreshing the page
+          handleSaveDevice()
+        }}>
+        {deviceId ? <>Save device</> : <>Add device</>}</button>
+      <div> </div>
+    </form>
+  )
 }

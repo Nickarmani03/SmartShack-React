@@ -13,6 +13,7 @@ import { MemberForm } from "./member/MemberForm"
 import { DeviceDetail } from "./device/DeviceDetail"
 import { RoomDetail } from "./room/RoomDetail"
 import { MemberDetail } from "./member/MemberDetail"
+import { DeviceSearch } from "./device/DeviceSearch"
 
 export const ApplicationViews = () => {
     return (
@@ -27,16 +28,25 @@ export const ApplicationViews = () => {
             <DeviceProvider>
                 <MemberProvider>
                     <RoomProvider>
-                        <Route exact path="/devices">
-                            <DeviceList />
-                        </Route>
+                       
 
                         <Route exact path="/devices/create">
                             <DeviceForm />
                         </Route>
 
                         <Route exact path="/devices/detail/:deviceId(\d+)">
+                            {/* the colon means to capture whats here and assign it to deviceId */}
+                            {/* only capture it if its a number for the \d for the details and then a number in the browswer*/}
                             <DeviceDetail />
+                        </Route>
+
+                        <Route exact path="/devices/edit/:deviceId(\d+)">
+                            <DeviceForm />
+                        </Route>
+
+                        <Route exact path="/devices">
+                            <DeviceSearch />
+                            <DeviceList />
                         </Route>
 
                     </RoomProvider>
@@ -45,33 +55,39 @@ export const ApplicationViews = () => {
 
 
             <MemberProvider>
-                <Route exact path="/members">
-                    <MemberList />
-                </Route>
-                <Route exact path="/members/create">
-                    <MemberForm />
-                </Route>
+                <RoomProvider>
+                    <MemberProvider>
+                        <Route exact path="/members">
+                            <MemberList />
+                        </Route>
+                        <Route exact path="/members/create">
+                            <MemberForm />
+                        </Route>
 
-                <Route exact path="/members/detail/:memberId(\d+)">
+                        <Route exact path="/members/detail/:memberId(\d+)">
                             <MemberDetail />
                         </Route>
+                    </MemberProvider>
+                </RoomProvider>
             </MemberProvider>
 
             <RoomProvider>
                 <DeviceProvider>
-                    <Route
-                        exact path="/rooms">
-                        <RoomList />
-                    </Route>
+                    <MemberProvider>
+                        <Route
+                            exact path="/rooms">
+                            <RoomList />
+                        </Route>
 
-                    <Route exact path="/rooms/create">
-                        <RoomForm />
-                    </Route>
+                        <Route exact path="/rooms/create">
+                            <RoomForm />
+                        </Route>
 
-                    <Route
-                        exact path="/rooms/detail/:roomId(\d+)">
-                        <RoomDetail />
-                    </Route>
+                        <Route
+                            exact path="/rooms/detail/:roomId(\d+)">
+                            <RoomDetail />
+                        </Route>
+                    </MemberProvider>
                 </DeviceProvider>
             </RoomProvider>
         </>

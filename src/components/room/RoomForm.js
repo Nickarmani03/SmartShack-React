@@ -14,7 +14,7 @@ export const RoomForm = () => {
     Define the intial state of the form inputs with useState()
     */
 
-    const [room, setRoom] = useState({
+    const [room, setRooms] = useState({
     });
 
     const history = useHistory();
@@ -38,7 +38,7 @@ export const RoomForm = () => {
         using object bracket notation. */
         newRoom[event.target.id] = event.target.value
         // update state
-        setRoom(newRoom)
+        setRooms(newRoom)
     }
 
     const handleClickSaveRoom = (event) => {
@@ -50,7 +50,7 @@ export const RoomForm = () => {
         if (roomId === 0 || deviceId === 0) {
             window.alert("Please select a room and a family device")
         } else {
-            //Invoke addroom passing the new room object as an argument
+            //Invoke addRoom passing the new room object as an argument
             //Once complete, change the url and display the room list
 
             const newRoom = {

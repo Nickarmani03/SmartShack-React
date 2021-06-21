@@ -38,21 +38,7 @@ export const RoomList = () => {
                                 {room.name}
                             </Link>
                         </div>
-                        // <section className="rooms">{
-                        //         rooms.map(room => {
-                        //             return (
-                        //                 <div className="room" key={room.id} id={`room--${room.id}`}>
-                        //                     <div className="room__name">
-                        //                         Name: {room.name}
-                        //                     </div>
-                        //                     <div className="room__device">
-                        //                         Device: {room.deviceId}
-                        //                     </div>
-                        //                 </div>
-                        //             )
-                        //         })
-                        //     }
-                        // </section>
+                        
 
                     )
                 }

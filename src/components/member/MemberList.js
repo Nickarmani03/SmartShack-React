@@ -25,7 +25,7 @@ export const MemberList = () => {
                 Add New Member
             </button>
             </div>
-        <section className="familyMembers"> 
+        <section className="members"> 
                 {
                     members.map(member =>  
                     <div className="member" key={member.id} id={`member--${member.id}`}>
@@ -34,6 +34,14 @@ export const MemberList = () => {
                           { member.name }
                         </Link>
             </div>
+                )
+            }
+        </section>
+        
+        </>
+    )
+}
+
                 // members.map(member => {
                 //     return (
                 //         <div className="familyMember" key={member.id} id={`member--${member.id}`}>
@@ -50,10 +58,3 @@ export const MemberList = () => {
                 //         </div>
                 //     )
                 // }
-                )
-            }
-        </section>
-        
-        </>
-    )
-}

@@ -1,8 +1,8 @@
 body {
-    background-image: url(logo.png);
+    /* background-image: url(logo.png); */
     background-blend-mode: overlay;
     background-repeat: no-repeat;
-    background-size: 1750px 1000px;
+    background-size: 2050px 1000px;
     background-attachment: fixed;
     background-position: center;
 }
@@ -99,5 +99,3 @@ fieldset {
     background-color: black;
     opacity: .8;
 }
-
-

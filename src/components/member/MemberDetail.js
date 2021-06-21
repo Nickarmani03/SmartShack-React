@@ -4,29 +4,39 @@ import "./Member.css"
 import { useParams, useHistory } from "react-router-dom"
 
 export const MemberDetail = () => {
-    const { members } = useContext(MemberContext)
-    const [ member, setMember ] = useState({ room: {}})
+    const { getMemberById, releaseMember } = useContext(MemberContext)
+    const [myMember, setMembers] = useState({ room: {} })
 
-    /*
-        Given the example URL above, this will store the value
-        of 5 in the memberId variable
-    */
+
     const { memberId } = useParams()
+
+
+
+    useEffect(() => {
+        getMemberById(parseInt(memberId)
+        ).then(member => { setMembers(member) })
+    }, [memberId])
 
     const history = useHistory()
 
-    useEffect(() => {
-        const thisMember = members.find(a => a.id === memberId) || { room: {}}
-
-        setMember(thisMember)}, [memberId])
+    const handleRelease = () => {
+        releaseMember(myMember.id).then(() => {
+            history.push("/members");
+        })
+    }
 
     return (
-        <section className="member" key={member.id}>
-        <h3 className="member__name"> {member.name} </h3>
-        <div className="member__room"> Room: {member.room.name} </div>
-        {/* <button onClick={() => {
+        <section className="member" key={myMember.id}>
+            <h3 className="member__name"> {myMember.name} </h3>
+            <div className="member__type">
+                <div><img src={myMember.imageURL} alt="member image" />
+                </div></div>
+            <div className="member__email"> Email: {myMember.email} </div>
+            <div className="member__type">age: {myMember.age}</div>
+            <button onClick={handleRelease}>Remove Family Member</button>
+            {/* <button onClick={() => {
             history.push(`/members/edit/${member.id}`)
         }}>Edit</button> */}
-    </section>
+        </section>
     )
 }
