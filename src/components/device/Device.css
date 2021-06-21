@@ -10,12 +10,11 @@
       margin: 1em;
       padding: 1em;
       border: 5px solid rgb(50, 20, 155);
-      /* background-color:black; */
-      background-color: rgb(93, 175, 230);
-     color: #fff;
-      opacity: .9;
+      background-color: rgba(0,0,0,.5);
+      color: #fff;    
       text-align: center;
       font-family: "Comfortaa", Arial, sans-serif;
+      
   }
 
   .deviceForm {
@@ -25,7 +24,29 @@
     text-align: center;
     
   }
-  
+
+  .inputSearch
+  {
+    font-family: "Comfortaa", Arial, sans-serif;
+    font-size: 1rem;
+    background-color: rgba(0,0,0,.5);
+    color: #fff;
+    font-family: "Comfortaa", Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0;
+    margin-left: auto;
+  margin-right: auto;
+  width: 11%;
+    
+    
+  }
+  .device__imageURL img {
+    width: 20%;
+    height: auto;
+}
+
+
   .form {
     display: inline-block;
     margin-left: auto;
@@ -35,9 +56,13 @@
   }
   
   .deviceForm__title {
-    border-radius: 5px;
-    background-color: black;
-    opacity: .8;
+   height: 4em;
+  padding-top: 2em;
+  background-color: rgba(0,0,0,.5);
+  color: #fff;
+  border-top: 3px solid #ccc;
+  border-bottom: 3px solid #ccc;
+ 
   }
 
   button {
@@ -50,3 +75,4 @@
     margin: 0;
   }
 
+ 

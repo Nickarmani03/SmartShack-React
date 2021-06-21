@@ -25,7 +25,7 @@ export const MemberList = () => {
                 Add New Member
             </button>
             </div>
-        <section className="familyMembers"> 
+        <section className="members"> 
                 {
                     members.map(member =>  
                     <div className="member" key={member.id} id={`member--${member.id}`}>

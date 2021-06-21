@@ -13,6 +13,7 @@ import { MemberForm } from "./member/MemberForm"
 import { DeviceDetail } from "./device/DeviceDetail"
 import { RoomDetail } from "./room/RoomDetail"
 import { MemberDetail } from "./member/MemberDetail"
+import { DeviceSearch } from "./device/DeviceSearch"
 
 export const ApplicationViews = () => {
     return (
@@ -27,16 +28,25 @@ export const ApplicationViews = () => {
             <DeviceProvider>
                 <MemberProvider>
                     <RoomProvider>
-                        <Route exact path="/devices">
-                            <DeviceList />
-                        </Route>
+                       
 
                         <Route exact path="/devices/create">
                             <DeviceForm />
                         </Route>
 
                         <Route exact path="/devices/detail/:deviceId(\d+)">
+                            {/* the colon means to capture whats here and assign it to deviceId */}
+                            {/* only capture it if its a number for the \d for the details and then a number in the browswer*/}
                             <DeviceDetail />
+                        </Route>
+
+                        <Route exact path="/devices/edit/:deviceId(\d+)">
+                            <DeviceForm />
+                        </Route>
+
+                        <Route exact path="/devices">
+                            <DeviceSearch />
+                            <DeviceList />
                         </Route>
 
                     </RoomProvider>

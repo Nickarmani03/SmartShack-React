@@ -5,8 +5,8 @@ import { useParams, useHistory } from "react-router-dom"
 
 export const RoomDetail = () => {
     const { getRoomById, releaseRoom } = useContext(RoomContext)
-    const [room, setRooms] = useState({ members: [], devices: [] })
-
+    const [room, setRooms] = useState({  devices: [] })
+// members: [],
 
     // hook function useParams() allows code to read route parameter from URL
     const { roomId } = useParams() // use when there's a dynamic route.
@@ -29,16 +29,16 @@ export const RoomDetail = () => {
     return (
         <section className="room" key={room.id}>
             <h3 className="room__name"> {room.name} </h3>
-            <div className="room__members">
+            {/* <div className="room__members">
                 <h3>Family Members: {room.members.length}</h3>
                 {room.members.map((member) => (
                     <div>{member.name}</div>
                 ))}
-            </div>
-            <div className="room__devices">
+            </div> */}
+            <div className="room__devices" key={room.id}>
                 <h3>Devices: {room.devices.length}</h3>
                 {room.devices.map((device) => (
-                    <div className="room__device__name">{device.name}</div>
+                    <div className="room__device__name"> {device.name}</div>
                 ))}
             </div>
             <button onClick={() => {

@@ -40,7 +40,7 @@ export const RoomProvider = (props) => {
     /*
         You return a context provider which has the
         `rooms` state, `getRooms` function,
-        and the `addroom` function as keys. This
+        and the `addRoom` function as keys. This
         allows any child elements to access them.
     */
     return (
