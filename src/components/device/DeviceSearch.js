@@ -1,4 +1,6 @@
 //accepts user input to search
+
+
 import React, { useContext } from "react"
 import { DeviceContext } from "./DeviceProvider"
 import "./Device.css"

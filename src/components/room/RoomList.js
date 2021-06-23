@@ -22,8 +22,10 @@ export const RoomList = () => {
 
     return (
         <>
-            <h2>Rooms</h2>
+           <style>{'body { background-image: url(https://www.vastuwiki.com/wp-content/uploads/2016/06/house-high-quality-wallpaper_015636679_148.jpg); }'}</style> 
+           <h2>Rooms</h2>
             <div className="vertical-center">
+            
                 <button onClick={
                     () => history.push("/rooms/create")}>
                     Add New Room

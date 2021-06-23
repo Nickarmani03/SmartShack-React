@@ -12,10 +12,26 @@ textarea {
   font-family: "Comfortaa", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
+  background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-size: 2050px 1000px;
+    background-attachment: fixed;
+    background-position: center;
 
 }
 
-h1, h2, h3, small {
+
+h1, h2, small{
+  font-family: "Patua One", serif;
+  letter-spacing: 2px;
+  text-align: center;
+  font-size: 2.5rem;
+    color: #1120f5;
+    
+    background-position: center;
+}
+
+h3 {
   font-family: "Patua One", serif;
   letter-spacing: 2px;
   text-align: center;
@@ -23,10 +39,10 @@ h1, h2, h3, small {
 
 h2 {
   
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: black;
     background: center;
-    opacity: .8;
+    /* opacity: .8; */
   
 }
 

@@ -65,31 +65,31 @@ export const RoomForm = () => {
 
     return (
         <>
-        <form className="roomForm">
-            <h2 className="roomForm__title">New Room</h2>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="name">New Room Name:  </label>
-                    <input type="text" id="name" required autoFocus className="form-control" placeholder="Enter Room Name" value={room.name} onChange={handleControlledInputChange} />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="name">Device to add:  </label>
-                    <select name="deviceId" id="deviceId" className="form-control" value={room.deviceId} onChange={handleControlledInputChange}>
-                        <option value="0">Select a device</option>
-                        {devices.map(l => (
-                            <option key={l.id} value={l.id}>
-                                {l.name}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-            </fieldset>
-            <button className="btn btn-primary" onClick={handleClickSaveRoom}>
-                Save room
-            </button>
-        </form>
+            <form className="roomForm">
+                <h2 className="roomForm__title">New Room</h2>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="name">New Room Name:  </label>
+                        <input type="text" id="name" required autoFocus className="form-control" placeholder="Enter Room Name" value={room.name} onChange={handleControlledInputChange} />
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="name">Device to add:  </label>
+                        <select name="deviceId" id="deviceId" className="form-control" value={room.deviceId} onChange={handleControlledInputChange}>
+                            <option value="0">Select a device</option>
+                            {devices.map(l => (
+                                <option key={l.id} value={l.id}>
+                                    {l.name}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                </fieldset>
+                <button className="btn btn-primary" onClick={handleClickSaveRoom}>
+                    Save room
+                </button>
+            </form>
         </>
     )
 }
