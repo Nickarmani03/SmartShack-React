@@ -30,6 +30,7 @@ export const DeviceProvider = (props) => {//transfers the data back and forth
             .then(res => res.json())//3 converts to js 
             .then(setDevices) //4   takes the data that comes back from the API and passes it through the SetDevices function. setDevices will then change the value of devices above and updates the state with the returned array
     }
+  
 
     const addDevice = (deviceObj) => {// device is an object
         return fetch("http://localhost:8088/devices", {
@@ -46,12 +47,13 @@ export const DeviceProvider = (props) => {//transfers the data back and forth
         return fetch(`http://localhost:8088/devices/${deviceId}`, {//backtics allow for the interpolation. its needed her so we can inject a variable into a string
             method: "DELETE"
         })
-            .then(getDeviceById)
+            // .then(getDeviceById)
+            .then(getDevices)
     }
     //Expose the method via the deviceContext below
 
     const getDeviceById = (deviceId) => {
-        return fetch(`http://localhost:8088/devices/${deviceId}`)
+        return fetch(`http://localhost:8088/devices/${deviceId}?_expand=member&_expand=room&_sort=room.id`)
             .then(res => res.json())
     }
 

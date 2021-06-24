@@ -9,7 +9,7 @@
       flex-basis: 28%;
       margin: 1em;
       padding: 1em;
-      border: 5px solid rgb(50, 20, 155);
+      border: 5px solid #1120f5;;
       background-color: rgba(0,0,0,.5);
       color: #fff;    
       text-align: center;
@@ -22,22 +22,23 @@
     margin-right:25%;
     width: 50%;
     text-align: center;
+    color: white;
+    font-size: 1rem;
     
   }
 
   .inputSearch
   {
     font-family: "Comfortaa", Arial, sans-serif;
-    font-size: 1rem;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0,0,0,.6);
     color: #fff;
     font-family: "Comfortaa", Arial, sans-serif;
     font-size: 1rem;
     line-height: 1.5;
     padding: 0;
     margin-left: auto;
-  margin-right: auto;
-  width: 11%;
+    margin-right: auto;
+    width: 9.5%;
     
     
   }
@@ -56,23 +57,31 @@
   }
   
   .deviceForm__title {
-   height: 4em;
-  padding-top: 2em;
-  background-color: rgba(0,0,0,.5);
-  color: #fff;
-  border-top: 3px solid #ccc;
-  border-bottom: 3px solid #ccc;
+    height: 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: rgba(0,0,0,.5);
+    color: #fff;
+    border-top: 3px solid #1120f5;;
+    border-bottom: 3px solid #1120f5;;
  
   }
 
   button {
     background-color: #4864e0;
-    color: blue;
+    color: rgb(242, 242, 248);
     font-family: "Comfortaa", Arial, sans-serif;
     font-size: 1rem;
     line-height: 1.5;
     padding: 0;
     margin: 0;
+    border-radius: 4px;
+    transition-duration: 0.4s;
+  }
+
+  .button:hover {
+    background-color: white;
+    color:#4864e0;
   }
 
  

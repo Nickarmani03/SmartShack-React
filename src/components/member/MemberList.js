@@ -18,6 +18,8 @@ export const MemberList = () => {
     const history = useHistory()
     return (
         <>
+        <style>{'body { background-image: url(https://www.lefthudson.com/wp-content/uploads/2019/11/black-wood-wallpaper-elegant-35-hd-wood-wallpapers-backgrounds-for-free-download-ideas-of-black-wood-wallpaper.jpg); }'}</style> 
+
         <h2>Family Members</h2>
         <div className="vertical-center">
         <button className="form" onClick={

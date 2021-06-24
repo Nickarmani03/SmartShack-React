@@ -45,9 +45,9 @@ export const RoomDetail = () => {
                     <div className="room__device__name"> {device.name}</div>
                 ))}
             </div>
-            <button onClick={() => {
+            {/* <button onClick={() => {
                 history.push(`/rooms/edit/${room.id}`)
-            }}>Edit</button>
+            }}>Edit</button> */}
              <button onClick={handleRelease}>Remove Room</button>
         </section>
         </>

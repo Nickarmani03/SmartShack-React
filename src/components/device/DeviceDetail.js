@@ -62,16 +62,16 @@ export const DeviceDetail = ({ device }) => {
         <div className="device__date">Date Added:  {myDevice.dateAdded}</div>
         
 
-        <div className="device__bluetooth"> {myDevice.isBluetooth ? "Bluetooth is enabled" : "Currently not using Bluetooth"}</div>
+        <div className="device__bluetooth"> <h3>{myDevice.isBluetooth ? "Bluetooth is enabled" : "Currently not using Bluetooth"}</h3></div>
 
 
-        <div className="device__wifi"> {myDevice.isWifi ? "Wifi is enabled" : "Currently not on Wifi"}</div>
+        <div className="device__wifi"><h3> {myDevice.isWifi ? "Wifi is enabled" : "Currently not on Wifi"}</h3></div>
 
-        <button onClick={handleRelease}>Remove Device</button>
+        <button onClick={handleRelease}> Remove Device </button>
 
 
         <button onClick={() => { history.push(`/devices/edit/${myDevice.id}`) } //changes the url when clicked.
-        }>Edit Device</button>
+        }> Edit Device </button>
       </section>
     </>
   )

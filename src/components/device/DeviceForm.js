@@ -111,6 +111,13 @@ export const DeviceForm = () => {
       }
     }
 
+
+// upon render, scroll to the top of the page
+    React.useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+    
+
     // Get members and rooms. If deviceId is in the URL, getDeviceById
     useEffect(() => { //runs initially once. then it will run every time the location state changes
       //when a field changes, update state. The return will re-render and display based on the values in state
@@ -135,14 +142,14 @@ export const DeviceForm = () => {
     return (
       <form className="deviceForm">
         
-        <style>{'body { background-image: url(https://www.vastuwiki.com/wp-content/uploads/2016/06/house-high-quality-wallpaper_015636679_148.jpg); }'}</style> 
+        <style>{'body { background-image: url(https://www.lefthudson.com/wp-content/uploads/2019/11/black-wood-wallpaper-elegant-35-hd-wood-wallpapers-backgrounds-for-free-download-ideas-of-black-wood-wallpaper.jpg); }'}</style> 
 
-      <h2 className="deviceForm__title">New device</h2>
+      <h2 className="deviceForm__title">My Device</h2>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="deviceName">Device name: </label>
+          <label htmlFor="deviceName">My Device Name: </label>
           <input type="text" id="name" name="name" required autoFocus className="form-control"
-            placeholder="device name"
+            placeholder="Device Name"
             onChange={handleControlledInputChange}
             value={device.name} />
         </div>
@@ -151,28 +158,28 @@ export const DeviceForm = () => {
         <fieldset>
           <div className="form-group">
             <label htmlFor="name">Type of Device:  </label>
-            <input type="text" id="type" name="type" required autoFocus className="form-control" placeholder="device type" value={device.type} onChange={handleControlledInputChange} />
+            <input type="text" id="type" name="type" required autoFocus className="form-control" placeholder="Device Type" value={device.type} onChange={handleControlledInputChange} />
           </div>
         </fieldset>
 
         <fieldset>
           <div className="form-group">
-            <label htmlFor="text">Paste image URL:</label>
-            <input type="text" id="imageURL" name="imageURL" required autoFocus className="form-control" placeholder="Image URL from webpage" value={device.imageURL} onChange={handleControlledInputChange} />
+            <label htmlFor="text">Paste an Image URL:</label>
+            <input type="text" id="imageURL" name="imageURL" required autoFocus className="form-control" placeholder="Image URL from Webpage" value={device.imageURL} onChange={handleControlledInputChange} />
           </div>
         </fieldset>
 
         <fieldset>
           <div className="form-group">
-            <label htmlFor="name">Device Description:  </label>
-            <input type="text" id="description" required autoFocus className="form-control" placeholder="describe your device" value={device.description} onChange={handleControlledInputChange} />
+            <label htmlFor="name">Description for Your Device :  </label>
+            <input type="text" id="description" required autoFocus className="form-control" placeholder="Describe Your Device" value={device.description} onChange={handleControlledInputChange} />
           </div>
         </fieldset>
 
         <fieldset>
           <div className="form-group">
             <label htmlFor="name">Device IP Address:  </label>
-            <input type="text" id="ipAddress" name="ipAddress" required autoFocus className="form-control" placeholder="ipAddress" value={device.ipAddress} onChange={handleControlledInputChange} />
+            <input type="text" id="ipAddress" name="ipAddress" required autoFocus className="form-control" placeholder="IP Address" value={device.ipAddress} onChange={handleControlledInputChange} />
           </div>
         </fieldset>
 
@@ -186,9 +193,9 @@ export const DeviceForm = () => {
 
         <fieldset>
           <div className="form-group">
-            <label htmlFor="isBluetooth">Is this device Bluetooth connected?</label>
+            <label htmlFor="isBluetooth">Is this device Bluetooth connected? Check box below for yes</label>
             <input type="checkbox" id="isBluetooth" name="isBluetooth" checked={device.isBluetooth} required autoFocus
-              className="form-control" placeholder="is the device Bluetooth"
+              className="form-control" placeholder="is the Device Bluetooth"
               onChange={handleIsBluetooth} />
           </div>
         </fieldset>
@@ -209,18 +216,18 @@ export const DeviceForm = () => {
 
         <fieldset>
           <div className="form-group">
-            <label htmlFor="isWifi">Is this device Wifi connected?</label>
+            <label htmlFor="isWifi">Is this device Wifi connected? Check box below for yes</label>
             <input type="checkbox" id="isWifi" name="isWifi" checked={device.isWifi} required autoFocus
-              className="form-control" placeholder="is the device Wifi"
+              className="form-control" placeholder="is the Device Wifi"
               onChange={handleIsWifi} />
           </div>
         </fieldset>
 
         <fieldset>
           <div className="form-group">
-            <label htmlFor="room">Assign to room: </label>
-            <select value={device.roomId} name="roomId" id="roomId" className="form-control" onChange={handleControlledInputChange}>
-              <option value="0">Select a room</option>
+            <label htmlFor="room">Assign your Device to room: </label>
+            <select value={device.roomId} name="" id="roomId" className="form-control" onChange={handleControlledInputChange}>
+              <option value="0">Select a Room</option>
               {rooms.map(l => (
                 <option key={l.id} value={l.id}>
                   {l.name}
@@ -231,9 +238,9 @@ export const DeviceForm = () => {
         </fieldset>
         <fieldset>
           <div className="form-group">
-            <label htmlFor="member">Family Member: </label>
+            <label htmlFor="member">The Family Member who added the device: </label>
             <select value={device.memberId} name="" id="memberId" className="form-control" onChange={handleControlledInputChange}>
-              <option value="0">Select a member</option>
+              <option value="0">Select a Member</option>
               {members.map(c => (
                 <option key={c.id} value={c.id}>
                   {c.name}
