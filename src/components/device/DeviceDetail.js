@@ -30,6 +30,9 @@ export const DeviceDetail = ({ device }) => {
   const history = useHistory()// force a url change when a button is clicked. returns value
 
   const handleRelease = () => {
+    //if user.id === 1 
+        // return all the normal stuff you have so far 
+        //else return all inputs with readOnly 
     releaseDevice(myDevice.id)
       .then(() => {
         history.push("/devices");

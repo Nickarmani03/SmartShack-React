@@ -57,7 +57,7 @@ export const MemberForm = () => {
                 name: member.name,
                 age: member.age,
                 email: member.email,
-                img: member.img,
+                imageURL: member.imageURL,
             }
             addMember(newMember)
                 .then(() => history.push("/members"))
@@ -65,6 +65,7 @@ export const MemberForm = () => {
     }
 
     return (
+        
         <form className="memberForm">
             <h2 className="memberForm__title"> Member</h2>
             <fieldset>
@@ -84,14 +85,15 @@ export const MemberForm = () => {
             <fieldset>
                 <div className="form-group-email">
                     <label htmlFor="email">Add an Email:  </label>
-                    <input type="text" id="email" required autoFocus className="form-control" placeholder="Enter an Email " value={member.eamil} onChange={handleControlledInputChange} />
+                    <input type="text" id="email" required autoFocus className="form-control" placeholder="Enter an Email " value={member.email} onChange={handleControlledInputChange} />
                 </div>
             </fieldset>
 
             <fieldset>
                 <div className="form-group-img">
-                    <label htmlFor="img">Add an Image:  </label>
-                    <input type="img" id="img" required autoFocus className="form-control" placeholder="Enter a Photo " value={member.img} onChange={handleControlledInputChange} />
+                    <label htmlFor="text">Add an Image:  </label>
+                    <input type="text" id="imageURL" 
+                    name="imageURL" required autoFocus className="form-control" placeholder="Enter a Photo " value={member.imageURL} onChange={handleControlledInputChange} />
                 </div>
             </fieldset>
 
