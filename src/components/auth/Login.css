@@ -1,28 +1,4 @@
-body {
-    /* background-image: url(logo.png); */
-    background-blend-mode: overlay;
-    background-repeat: no-repeat;
-    background-size: 2050px 1000px;
-    background-attachment: fixed;
-    background-position: center;
-}
 
-/* .text {
-   background: rgba(0, 0, 0, 0);  
-} */
-
-.h1, h1, h2 {
-    font-size: 2.5rem;
-    color: #1120f5;
-    font-family: "Comfortaa", Arial, sans-serif; 
-    background-position: center;
-    /* width: 950px;
-    text-align: center; */
-}
-
-/* label, a{
-    color: #1120f5;
-} */
 
 fieldset {
     min-width: 0;
@@ -89,13 +65,55 @@ fieldset {
 
 .inputEmail {
     color: white;
-    border-radius: 35px;
-    background-color: black;
-    opacity: .8;
+    border-radius: 25px;
+    background-color: rgba(0,0,0,.7);
+    padding: 3px;
 }
 
 .form--title {
     border-radius: 35px;
-    background-color: black;
-    opacity: .8;
+    background-color: rgba(0,0,0,.7);
+    padding: 1px;
+}
+
+.link--register {
+    text-align: center;
+    border-radius: 35px;
+    background-color: rgba(0,0,0,.7);
+    border-radius: 5px;
+    font-size: 1.5rem;
+    padding: 5px;
+    margin: 1rem;
+    width: 550px;
+    margin-left: 550px;
+    
+}
+
+.smartshack_login {  
+    text-align: center;
+    transform: translate(50%,-50%);
+    font-family: "Patua One", serif;
+    font-size: 7rem;
+    color: #f5f5f5;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 1px #1120f5,
+        1px 2px 1px #1120f5,
+        1px 3px 1px #1120f5,
+        1px 4px 1px #1120f5,
+        1px 5px 1px #1120f5,
+        1px 6px 1px #1120f5,
+        1px 7px 1px #1120f5,
+        1px 8px 1px #1120f5,
+        1px 9px 1px #1120f5,
+        1px 10px 1px #1120f5,
+    1px 18px 6px rgba(16,16,16,0.4),
+    1px 22px 10px rgba(16,16,16,0.2),
+    1px 25px 35px rgba(16,16,16,0.2),
+    1px 30px 60px rgba(16,16,16,0.4);
+    /* padding: 0.5rem 0;*/
+    margin: 32;
+    margin-bottom: 0px;
+    border: 0; 
+    margin-top: 100px;
+    width:100px;
 }

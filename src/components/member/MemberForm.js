@@ -66,32 +66,32 @@ export const MemberForm = () => {
 
     return (
         <form className="memberForm">
-            <h2 className="memberForm__title">Add a New member</h2>
+            <h2 className="memberForm__title"> Member</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name"> Name:  </label>
-                    <input type="text" id="name" required autoFocus className="form-control" placeholder="Enter member Name" value={member.name} onChange={handleControlledInputChange} />
+                    <label htmlFor="name"> Member's Name:  </label>
+                    <input type="text" id="name" required autoFocus className="form-control" placeholder="Enter a Member's Name" value={member.name} onChange={handleControlledInputChange} />
                 </div>
             </fieldset>
 
             <fieldset>
                 <div className="form-group-age">
-                    <label htmlFor="number">Enter Age:  </label>
+                    <label htmlFor="number">Enter Member's Age:  </label>
                     <input type="text" id="age" required autoFocus className="form-control" placeholder="Enter Age" value={member.age} onChange={handleControlledInputChange} />
                 </div>
             </fieldset>
 
             <fieldset>
                 <div className="form-group-email">
-                    <label htmlFor="email">Enter Email:  </label>
-                    <input type="text" id="email" required autoFocus className="form-control" placeholder="Enter Email " value={member.eamil} onChange={handleControlledInputChange} />
+                    <label htmlFor="email">Add an Email:  </label>
+                    <input type="text" id="email" required autoFocus className="form-control" placeholder="Enter an Email " value={member.eamil} onChange={handleControlledInputChange} />
                 </div>
             </fieldset>
 
             <fieldset>
                 <div className="form-group-img">
-                    <label htmlFor="img">Enter Image:  </label>
-                    <input type="img" id="img" required autoFocus className="form-control" placeholder="Enter a photo " value={member.img} onChange={handleControlledInputChange} />
+                    <label htmlFor="img">Add an Image:  </label>
+                    <input type="img" id="img" required autoFocus className="form-control" placeholder="Enter a Photo " value={member.img} onChange={handleControlledInputChange} />
                 </div>
             </fieldset>
 

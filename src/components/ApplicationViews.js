@@ -60,6 +60,7 @@ export const ApplicationViews = () => {
                         <Route exact path="/members">
                             <MemberList />
                         </Route>
+
                         <Route exact path="/members/create">
                             <MemberForm />
                         </Route>
@@ -93,3 +94,7 @@ export const ApplicationViews = () => {
         </>
     )
 }
+
+//this page routes between components and makes different context available between those components
+
+// it provides the devices and members to those different routes. 

@@ -27,7 +27,11 @@ export const RoomDetail = () => {
       }
 
     return (
+<>
+        <style>{'body { background-image: url(https://images.unsplash.com/photo-1514803400321-3ca29fc47334?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8c21hcnQlMjBob3VzZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80); }'}</style>
+
         <section className="room" key={room.id}>
+
             <h3 className="room__name"> {room.name} </h3>
             {/* <div className="room__members">
                 <h3>Family Members: {room.members.length}</h3>
@@ -41,10 +45,11 @@ export const RoomDetail = () => {
                     <div className="room__device__name"> {device.name}</div>
                 ))}
             </div>
-            <button onClick={() => {
+            {/* <button onClick={() => {
                 history.push(`/rooms/edit/${room.id}`)
-            }}>Edit</button>
+            }}>Edit</button> */}
              <button onClick={handleRelease}>Remove Room</button>
         </section>
+        </>
     )
 }
