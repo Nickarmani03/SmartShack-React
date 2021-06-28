@@ -199,20 +199,6 @@ export const DeviceForm = () => {
               onChange={handleIsBluetooth} />
           </div>
         </fieldset>
-        {/* 
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor = "isWifi"><input 
-            type="checkbox" value= {device.isWifi} name= "isWifi" id="isWifi" onChange={(event)=> setWifiChecked(event.target.checked)}/><span>Is this device Wifi?</span>
-            </label>
-        </div>
-      </fieldset> */}
-
-        {/* <fieldset> 
-      <div> 
-      <label><input type="checkbox" value="checked" onChange = {(e) => this.setState({check: !check.value})}/> Checkbox </label>
-    </div>
-    </fieldset> */}
 
         <fieldset>
           <div className="form-group">
