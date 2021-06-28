@@ -41,7 +41,7 @@ export const MemberForm = () => {
         setMembers(newMember)
     }
 
-    const handleClickSavemember = (event) => {
+    const handleClickSaveMember = (event) => {
         event.preventDefault() //Prevents the browser from submitting the form
 
         const memberId = parseInt(member.memberId)
@@ -110,7 +110,7 @@ export const MemberForm = () => {
                     </select>
                 </div>
             </fieldset> */}
-            <button className="btn btn-primary" onClick={handleClickSavemember}>
+            <button className="btn btn-primary" onClick={handleClickSaveMember}>
                 Save Member
             </button>
         </form>

@@ -2,15 +2,16 @@ import React, { useContext, useEffect, useState } from "react"
 import { DeviceContext } from "./DeviceProvider"
 import "./Device.css"
 import { useParams, useHistory } from "react-router-dom"
+import { MemberContext } from "../member/MemberProvider"
 
 
 export const DeviceDetail = ({ device }) => {
-  const { getDeviceById, releaseDevice } = useContext(DeviceContext); // shared context from the provider. 
-
-  const [myDevice, setDevices] = useState({ room: {}, member: {} })//useState captures it in the SetDevices
+  const { getDeviceById, releaseDevice, devices } = useContext(DeviceContext); // shared context from the provider. 
+  
+  const [myDevice, setDevices] = useState({ room: {}, member: {}, device:{}})//useState captures it in the SetDevices
   //useState handles data that changes in app. when state changes it will reflect to the UI/on the page to reflect the latest value
   //invoke the setDevices value is function to set the value of myDevice so it will rerender the data at the bottom in the return
-
+   
 
 
   // hook function useParams() allows code to read route parameter from URL.
@@ -39,6 +40,15 @@ export const DeviceDetail = ({ device }) => {
       })
   }
 
+  
+  
+const member = parseInt(localStorage.getItem("smartshack_member"))
+//   if (localStorage.getItem(member.id) === 1) {
+    
+
+   
+        // return all the normal stuff you have so far 
+        //else return all inputs with readOnly 
 
   return (
     <>
@@ -70,12 +80,23 @@ export const DeviceDetail = ({ device }) => {
 
         <div className="device__wifi"><h3> {myDevice.isWifi ? "Wifi is enabled" : "Currently not on Wifi"}</h3></div>
 
-        <button onClick={handleRelease}> Remove Device </button>
+        {member === myDevice.member.id ? <button onClick={() => {
+          handleRelease()
+          }}>Remove Device </button> : <div></div>}
 
+          {member === myDevice.member.id ? 
+          <button onClick={() => {history.push(`/devices/edit/${myDevice.id}`)
+        }}>  Edit Device </button> : <div></div>}
 
-        <button onClick={() => { history.push(`/devices/edit/${myDevice.id}`) } //changes the url when clicked.
-        }> Edit Device </button>
       </section>
     </>
   )
 }
+
+// Conditional (ternary) operator.a condition followed by a question mark (?), then an expression to execute if the condition is truthy followed by a colon (:), and finally the expression to execute if the condition is falsy.
+
+// {member === myDevice.member.id ? <button onClick={() => {
+//   handleRelease()
+//   .then(history.push(`/devices/edit/${myDevice.id}`))
+// }}>
+// Remove Device </button> : <div></div>}
