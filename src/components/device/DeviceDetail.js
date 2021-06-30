@@ -2,11 +2,11 @@ import React, { useContext, useEffect, useState } from "react"
 import { DeviceContext } from "./DeviceProvider"
 import "./Device.css"
 import { useParams, useHistory } from "react-router-dom"
-import { MemberContext } from "../member/MemberProvider"
+
 
 
 export const DeviceDetail = ({ device }) => {
-  const { getDeviceById, releaseDevice, devices } = useContext(DeviceContext); // shared context from the provider. 
+  const { getDeviceById, releaseDevice} = useContext(DeviceContext); // shared context from the provider. 
   
   const [myDevice, setDevices] = useState({ room: {}, member: {}, device:{}})//useState captures it in the SetDevices
   //useState handles data that changes in app. when state changes it will reflect to the UI/on the page to reflect the latest value
@@ -17,7 +17,7 @@ export const DeviceDetail = ({ device }) => {
   // hook function useParams() allows code to read route parameter from URL.
   const { deviceId } = useParams() // use when there's a dynamic route. pulls from the URL. the route is changeable
 
-
+ 
   useEffect(() => {// runs on first page load, and then every time the state of the JSX changes
     if (deviceId) {
       getDeviceById(parseInt(deviceId))//after the componet renders, go get the device. parse it to change the string to a number
