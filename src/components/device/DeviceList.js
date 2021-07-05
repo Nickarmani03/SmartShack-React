@@ -7,12 +7,14 @@ import "./Device.css"
 
 export const DeviceList = () => {
     // This state changes when `getdevices()` is invoked below
-    const { devices, getDevices, searchTerms } = useContext(DeviceContext)  //deviceContext is an arguement
-
+    //these are methods from DeviceContext provider.
+    const { devices, getDevices, searchTerms } = useContext(DeviceContext)  // useContext hook allows you to use data structures and functions that a parent provider component exposes.
+    //DeviceContext is an arguement
     //deconstructs objects from the context from the provider.js
 
+  
     // Since you are no longer ALWAYS displaying all of the devices
-    const [filteredDevices, setFiltered] = useState([])
+    const [filteredDevices, setFiltered] = useState([]) // state variable
     //useState always returns an array with 2 values.the first is state. filtered devices.
     //the first filteredDevices shows current state and the second setFiltered modifies state when ran
     // allows for sharing the state across sibling components through a parent. one sets the state and the other reponds to the changes, and dispalys the results
@@ -20,10 +22,13 @@ export const DeviceList = () => {
 
     const history = useHistory()//the url is happening outside this component
 
+ 
     // Empty dependency array - this useEffect only runs after first render
     useEffect(() => {
-        getDevices()
-    }, [])
+        getDevices() 
+    }, []) // fetch call pulls from API
+
+
 
     useEffect(() => {
         if (searchTerms !== "") { //if searchterms are not blank

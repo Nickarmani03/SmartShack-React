@@ -23,12 +23,12 @@ export const DeviceProvider = (props) => {//transfers the data back and forth
 
     const [searchTerms, setSearchTerms] = useState("")
     //search mutates and changes state. it tracts what the user types in
-    // thwen the list reacts to the state
+    // then the list reacts to the state
 
-    const getDevices = () => {// will reach out to get the devices from the API /Json     1
-        return fetch("http://localhost:8088/devices?_expand=member&_expand=room&_sort=room.id") // 2 converts the json stringified array into a javascript array
-            .then(res => res.json())//3 converts to js 
-            .then(setDevices) //4   takes the data that comes back from the API and passes it through the SetDevices function. setDevices will then change the value of devices above and updates the state with the returned array
+    const getDevices = () => {// will reach out to get the devices from the API /Json     
+        return fetch("http://localhost:8088/devices?_expand=member&_expand=room&_sort=room.id") //  converts the json stringified array into a javascript array
+            .then(res => res.json())// converts to js 
+            .then(setDevices) // takes the data that comes back from the API and passes it through the SetDevices function. setDevices will then change the value of devices above and updates the state with the returned array
     }
   
 

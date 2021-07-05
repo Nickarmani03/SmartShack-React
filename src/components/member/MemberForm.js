@@ -5,7 +5,6 @@ import "./Member.css"
 import { useHistory } from 'react-router-dom';
 
 export const MemberForm = () => {
-
     const { addMember, getMembers } = useContext(MemberContext)   
 
     /*
@@ -14,8 +13,7 @@ export const MemberForm = () => {
     Define the intial state of the form inputs with useState()
     */
 
-    const [member, setMembers] = useState({
-    });
+    const [member, setMembers] = useState({});
 
     const history = useHistory();
 
@@ -97,19 +95,6 @@ export const MemberForm = () => {
                 </div>
             </fieldset>
 
-            {/* <fieldset>
-                <div className="form-group">
-                    <label htmlFor="name">Device to add:  </label>
-                    <select name="deviceId" id="deviceId" className="form-control" value={member.deviceId} onChange={handleControlledInputChange}>
-                        <option value="0">Select a device</option>
-                        {devices.map(l => (
-                            <option key={l.id} value={l.id}>
-                                {l.name}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-            </fieldset> */}
             <button className="btn btn-primary" onClick={handleClickSaveMember}>
                 Save Member
             </button>
