@@ -30,7 +30,7 @@ export const DeviceProvider = (props) => {//transfers the data back and forth
             .then(res => res.json())// converts to js 
             .then(setDevices) // takes the data that comes back from the API and passes it through the SetDevices function. setDevices will then change the value of devices above and updates the state with the returned array
     }
-  
+
 
     const addDevice = (deviceObj) => {// device is an object
         return fetch("http://localhost:8088/devices", {
@@ -75,10 +75,10 @@ export const DeviceProvider = (props) => {//transfers the data back and forth
         allows any child elements to access them.
     */
     return (
-        <DeviceContext.Provider value={//the value of the state is what this provider exposes to the rest of the application. the object below
+        <DeviceContext.Provider value={// The value of the state is what this provider exposes to the rest of the application. the object below
             { devices, getDevices, addDevice, releaseDevice, getDeviceById, updateDevice, searchTerms, setSearchTerms }//the value is an object with these as keys it will allow each one to be invoked. will allow other modules to access them.
 
         }>{props.children}
         </DeviceContext.Provider>// props = properties of all child componets. ensures the child have access to the properties, and it is an object. the arguement to the provider function. takes all the arguments and wraps them in an object.
     )
-}  //With this, other components can access the array of objects being stored in the devices variable, and they can invoke the, getDevice and addDevice functions.
+}  // With this, other components can access the array of objects being stored in the devices variable, and they can invoke the, getDevice and addDevice functions.

@@ -1,5 +1,5 @@
 import React from "react"
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom"
 import { NavBar } from "./nav/NavBar"
 import { ApplicationViews } from "./ApplicationViews"
 import { Login } from "./auth/Login";
@@ -13,14 +13,11 @@ export const SmartShack = () => (
                 if (localStorage.getItem("smartshack_member")) {
                     return (
                         <>
-                            
-                                <div className="smartShack_app">SmartShack</div>
+                            <div className="smartShack_app">SmartShack</div>
+                            <section className="device_title">
+                                <h2>Where smart devices live with smarter people.</h2>
+                            </section>
 
-                                <section className="device_title"> <h2>Where smart devices live with smarter people.</h2>
-                                   
-
-                                </section>
-                            
                             <NavBar />
                             <ApplicationViews />
                         </>

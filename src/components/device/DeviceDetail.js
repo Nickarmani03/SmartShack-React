@@ -6,18 +6,15 @@ import { useParams, useHistory } from "react-router-dom"
 
 
 export const DeviceDetail = ({ device }) => {
-  const { getDeviceById, releaseDevice} = useContext(DeviceContext); // shared context from the provider. 
-  
-  const [myDevice, setDevices] = useState({ room: {}, member: {}, device:{}})//useState captures it in the SetDevices
-  //useState handles data that changes in app. when state changes it will reflect to the UI/on the page to reflect the latest value
-  //invoke the setDevices value is function to set the value of myDevice so it will rerender the data at the bottom in the return
-   
+  const { getDeviceById, releaseDevice } = useContext(DeviceContext); // shared context from the provider. 
 
+  const [myDevice, setDevices] = useState({ room: {}, member: {}, device: {} })//useState captures it in the SetDevices
+  //useState handles data that changes in app. when state changes it will reflect to the UI/on the page to reflect the latest value
+  //invoke the setDevices value is function to set the value of myDevice so it will rerender the data at the bottom in the return.
 
   // hook function useParams() allows code to read route parameter from URL.
   const { deviceId } = useParams() // use when there's a dynamic route. pulls from the URL. the route is changeable
-
- 
+  
   useEffect(() => {// runs on first page load, and then every time the state of the JSX changes
     if (deviceId) {
       getDeviceById(parseInt(deviceId))//after the componet renders, go get the device. parse it to change the string to a number
@@ -32,32 +29,29 @@ export const DeviceDetail = ({ device }) => {
 
   const handleRelease = () => {
     //if user.id === 1 
-        // return all the normal stuff you have so far 
-        //else return all inputs with readOnly 
+    // return all the normal stuff you have so far 
+    //else return all inputs with readOnly 
     releaseDevice(myDevice.id)
       .then(() => {
         history.push("/devices");
       })
   }
 
-  
-  
-const member = parseInt(localStorage.getItem("smartshack_member"))
-//   if (localStorage.getItem(member.id) === 1) {
-    
 
-   
-        // return all the normal stuff you have so far 
-        //else return all inputs with readOnly 
+
+  const member = parseInt(localStorage.getItem("smartshack_member"))
+  //   if (localStorage.getItem(member.id) === 1) {
+
+
+
+  // return all the normal stuff you have so far 
+  //else return all inputs with readOnly 
 
   return (
     <>
-    {/* <style>{'body { background-image: url(https://www.lefthudson.com/wp-content/uploads/2019/11/black-wood-wallpaper-elegant-35-hd-wood-wallpapers-backgrounds-for-free-download-ideas-of-black-wood-wallpaper.jpg); }'}</style>  */}
-
       <section className="device" key={myDevice.id}>
-      
 
-      <h3 className="device__name">Name: {myDevice.name}</h3>
+        <h3 className="device__name">Name: {myDevice.name}</h3>
 
         <div className="device__type">Type:  {myDevice.type}</div>
 
@@ -70,10 +64,10 @@ const member = parseInt(localStorage.getItem("smartshack_member"))
 
         <div className="device__room">Room: {myDevice.room.name}</div>
 
-        <div className="device__owner">Family Member:  {myDevice.member.name}</div> 
+        <div className="device__owner">Family Member:  {myDevice.member.name}</div>
 
         <div className="device__date">Date Added:  {myDevice.dateAdded}</div>
-        
+
 
         <div className="device__bluetooth"> <h3>{myDevice.isBluetooth ? "Bluetooth is enabled" : "Currently not using Bluetooth"}</h3></div>
 
@@ -82,11 +76,12 @@ const member = parseInt(localStorage.getItem("smartshack_member"))
 
         {member === myDevice.member.id ? <button onClick={() => {
           handleRelease()
-          }}>Remove Device </button> : <div></div>}
+        }}>Remove Device </button> : <div></div>}
 
-          {member === myDevice.member.id ? 
-          <button onClick={() => {history.push(`/devices/edit/${myDevice.id}`)
-        }}>  Edit Device </button> : <div></div>}
+        {member === myDevice.member.id ?
+          <button onClick={() => {
+            history.push(`/devices/edit/${myDevice.id}`)
+          }}>  Edit Device </button> : <div></div>}
 
       </section>
     </>

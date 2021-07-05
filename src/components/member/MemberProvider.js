@@ -39,14 +39,14 @@ export const MemberProvider = (props) => {
 
     const updateMember = member => {
         return fetch(`http://localhost:8088/members/${member.id}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(member)
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(member)
         })
-          .then(getMembers)
-      }
+            .then(getMembers)
+    }
 
     return (
         <MemberContext.Provider value={{
