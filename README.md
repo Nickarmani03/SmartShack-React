@@ -19,10 +19,9 @@ Allows the user to  edit the device and change the the room where the device is 
 User can log out when completed.
 
 Technologies used:
-Javascript / HTML / CSS
-React
+Javascript / HTML / CSS / React
 
-
+see beblow for how to use app and how to navigate the app below.
 First clone this repository, git clone git@github.com:Nickarmani03/SmartShack-React.git
 Then, to launch the app in React:
 Open a terminal window and:
