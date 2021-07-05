@@ -14,7 +14,7 @@ export const SmartShack = () => (
                     return (
                         <>
                             
-                                <div className="smartshack_app">SmartShack</div>
+                                <div className="smartShack_app">SmartShack</div>
 
                                 <section className="device_title"> <h2>Where smart devices live with smarter people.</h2>
                                    

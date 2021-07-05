@@ -22,7 +22,7 @@ export const RoomList = () => {
 
     return (
         <>
-          <style>{'body { background-image: url(https://www.lefthudson.com/wp-content/uploads/2019/11/black-wood-wallpaper-elegant-35-hd-wood-wallpapers-backgrounds-for-free-download-ideas-of-black-wood-wallpaper.jpg); }'}</style> 
+          {/* <style>{'body { background-image: url(https://www.lefthudson.com/wp-content/uploads/2019/11/black-wood-wallpaper-elegant-35-hd-wood-wallpapers-backgrounds-for-free-download-ideas-of-black-wood-wallpaper.jpg); }'}</style>  */}
            
            <h2>Rooms</h2>
             <div className="vertical-center">

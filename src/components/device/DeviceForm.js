@@ -142,7 +142,7 @@ export const DeviceForm = () => {
     return (
       <form className="deviceForm">
         
-        <style>{'body { background-image: url(https://www.lefthudson.com/wp-content/uploads/2019/11/black-wood-wallpaper-elegant-35-hd-wood-wallpapers-backgrounds-for-free-download-ideas-of-black-wood-wallpaper.jpg); }'}</style> 
+        {/* <style>{'body { background-image: url(https://www.lefthudson.com/wp-content/uploads/2019/11/black-wood-wallpaper-elegant-35-hd-wood-wallpapers-backgrounds-for-free-download-ideas-of-black-wood-wallpaper.jpg); }'}</style>  */}
 
       <h2 className="deviceForm__title">My Device</h2>
       <fieldset>

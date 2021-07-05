@@ -6,7 +6,7 @@ import "./Member.css"
 import { useHistory } from 'react-router-dom'
 
 export const MemberList = () => {
-    // This state changes when `getmembers()` is invoked below
+    // This state changes when `getMembers()` is invoked below
     const { members, getMembers } = useContext(MemberContext)
 
     //useEffect - reach out to the world for something
@@ -18,7 +18,7 @@ export const MemberList = () => {
     const history = useHistory()
     return (
         <>
-        <style>{'body { background-image: url(https://www.lefthudson.com/wp-content/uploads/2019/11/black-wood-wallpaper-elegant-35-hd-wood-wallpapers-backgrounds-for-free-download-ideas-of-black-wood-wallpaper.jpg); }'}</style> 
+        {/* <style>{'body { background-image: url(https://www.lefthudson.com/wp-content/uploads/2019/11/black-wood-wallpaper-elegant-35-hd-wood-wallpapers-backgrounds-for-free-download-ideas-of-black-wood-wallpaper.jpg); }'}</style>  */}
 
         <h2>Family Members</h2>
         <div className="vertical-center">
@@ -31,11 +31,12 @@ export const MemberList = () => {
                 {
                     members.map(member =>  
                     <div className="member" key={member.id} id={`member--${member.id}`}>
-                    <div className="members__name"></div>
+                    <div className="members__name">
                     <Link to={`/members/detail/${member.id}`}>
                           { member.name }
                         </Link>
-            </div>
+                        </div>
+                        </div>
                 )
             }
         </section>
@@ -43,20 +44,3 @@ export const MemberList = () => {
         </>
     )
 }
-
-                // members.map(member => {
-                //     return (
-                //         <div className="familyMember" key={member.id} id={`member--${member.id}`}>
-                //             <div className="familyMember__name">
-                //                 Name: {member.name}
-                //             </div>
-                //             <div className="familyMember__type">
-                //                 Age: {member.age}
-                //             </div>
-                //             {/* <div className="familyMember__type">
-                //                 Picture: <img src={ Avatar1 }/>
-                //             </div> */}
-
-                //         </div>
-                //     )
-                // }

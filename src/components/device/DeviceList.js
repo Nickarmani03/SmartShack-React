@@ -10,7 +10,7 @@ export const DeviceList = () => {
     //these are methods from DeviceContext provider.
     const { devices, getDevices, searchTerms } = useContext(DeviceContext)  // useContext hook allows you to use data structures and functions that a parent provider component exposes.
     //DeviceContext is an arguement
-    //deconstructs objects from the context from the provider.js
+    //deconstructs objects from the context from the provider.js rerenders every time it changes. 
 
   
     // Since you are no longer ALWAYS displaying all of the devices
@@ -24,8 +24,8 @@ export const DeviceList = () => {
 
  
     // Empty dependency array - this useEffect only runs after first render
-    useEffect(() => {
-        getDevices() 
+    useEffect(() => { 
+        getDevices() //invoked
     }, []) // fetch call pulls from API
 
 

@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useState } from "react"
 import { MemberContext } from "../member/MemberProvider"
-
+import { useHistory, useParams } from 'react-router-dom';
 import "./Member.css"
-import { useHistory } from 'react-router-dom';
 
 export const MemberForm = () => {
-    const { addMember, getMembers } = useContext(MemberContext)   
+    const { addMember, getMembers, updateMember, getMemberById } = useContext(MemberContext)   
 
     /*
     With React, we do not target the DOM with `document.querySelector()`. Instead, our return (render) reacts to state or props.
@@ -13,17 +12,17 @@ export const MemberForm = () => {
     Define the intial state of the form inputs with useState()
     */
 
-    const [member, setMembers] = useState({});
+  
+    //for edit, hold on to state of member in this view
+    const [member, setMembers] = useState({})
+    //wait for data before button is active
+    const [isLoading, setIsLoading] = useState(true)
 
-    const history = useHistory();
+    const {memberId} = useParams()
 
-    /*
-    Reach out to the world and get devices state
-    and member state on initialization.
-    */
-    useEffect(() => {
-        getMembers()
-    }, [])
+    const history = useHistory()
+
+    
 
     //when a field changes, update state. The return will re-render and display based on the values in state
     //Controlled component
@@ -39,29 +38,51 @@ export const MemberForm = () => {
         setMembers(newMember)
     }
 
-    const handleClickSaveMember = (event) => {
-        event.preventDefault() //Prevents the browser from submitting the form
-
-        const memberId = parseInt(member.memberId)
-        
-
-        if (memberId === 0) {
+    
+    const handleSaveMember = () => {
+        if (parseInt(member.memberId) === 0) {
             window.alert("Please enter a new member")
         } else {
-            //Invoke addMember passing the new member object as an argument
-            //Once complete, change the url and display the member list
-
-            const newMember = {
+          //disable the button - no extra clicks
+          setIsLoading(true);
+          if (memberId){
+            //PUT - update
+            updateMember({
+                id: member.id,
                 name: member.name,
                 age: member.age,
                 email: member.email,
                 imageURL: member.imageURL,
-            }
-            addMember(newMember)
-                .then(() => history.push("/members"))
+                
+            })
+            .then(() => history.push(`/members/detail/${member.id}`))
+          }else {
+            //POST - add
+            addMember({
+                name: member.name,
+                age: member.age,
+                email: member.email,
+                imageURL: member.imageURL,
+            })
+            .then(() => history.push("/members"))
+          }
         }
-    }
-
+      }
+  
+      // Get customers and locations. If memberId is in the URL, getMemberById
+      useEffect(() => {
+        getMembers().then(() => {
+          if (memberId){
+            getMemberById(memberId)
+            .then(member => {
+                setMembers(member)
+                setIsLoading(false)
+            })
+          } else {
+            setIsLoading(false)
+          }
+        })
+      }, [])
     return (
         
         <form className="memberForm">
@@ -95,9 +116,13 @@ export const MemberForm = () => {
                 </div>
             </fieldset>
 
-            <button className="btn btn-primary" onClick={handleClickSaveMember}>
-                Save Member
-            </button>
+            <button className="btn btn-primary"
+          disabled={isLoading}
+          onClick={event => {
+            event.preventDefault() // Prevent browser from submitting the form and refreshing the page
+            handleSaveMember()
+          }}>
+        {memberId ? <>Save Family Member</> : <>Add Family Member</>}</button>
         </form>
     )
 }
