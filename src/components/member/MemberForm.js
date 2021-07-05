@@ -40,7 +40,7 @@ export const MemberForm = () => {
 
 
   const handleSaveMember = () => {
-    if (parseInt(member.memberId) === 0) {
+    if (member.memberId === 0) {
       window.alert("Please Enter a New Member")
     } else {
       //disable the button - no extra clicks

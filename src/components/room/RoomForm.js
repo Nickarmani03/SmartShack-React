@@ -55,6 +55,7 @@ export const RoomForm = () => {
 
             const newRoom = {
                 name: room.name,
+                // device: device.name,
                 deviceId: parseInt(room.deviceId)
             }
             addRoom(newRoom)

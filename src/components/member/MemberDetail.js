@@ -26,6 +26,8 @@ export const MemberDetail = () => {
         })
     }
 
+    const member = parseInt(localStorage.getItem("smartshack_member"))
+
     return (
         <section className="member" key={myMember.id}>
 
@@ -34,11 +36,15 @@ export const MemberDetail = () => {
                 <img src={myMember.imageURL} alt="member image" /></div>
             <div className="member__email"> Email: {myMember.email} </div>
             <div className="member__type">Age: {myMember.age}</div>
-            <button onClick={handleRelease}>Remove Family Member</button>
 
-            <button onClick={() => {
-                history.push(`/members/edit/${myMember.id}`)
-            }}>Edit</button>
+            {member === myMember.id ? <button onClick={() => {
+                handleRelease()
+            }}>Remove Family Member</button> : <div></div>}
+
+            {member === myMember.id ?
+                <button onClick={() => {
+                    history.push(`/members/edit/${myMember.id}`)
+                }}>  Edit Member </button> : <div></div>}
 
         </section>
     )
