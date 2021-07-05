@@ -1,8 +1,80 @@
+Welcome to SmartShack, a React based app, that is used to track smart devices around your home. where anyone can use it to track thier smart devices
+
+
+
+
+
+
+
+
+Technologies
+Javascript / HTML / CSS
+React
+
+
+First clone this repository, git clone git@github.com:Nickarmani03/SmartShack-React.git
+Then, to launch the app in React:
+Open a terminal window and:
+cd into the SmartShack directory.
+cd smart-shack
+npm install then wait until completed. this is for initial launch only. 
+
+Starting the application in React
+Open a terminal window and get into the SmartShack directory:
+cd SmartShack 
+cd src
+npm start
+
+Then clone this repository for the matching API, git clone git@github.com:Nickarmani03/SmartShack-API.git
+Starting the API
+Open a terminal window and get into the Shack-API directory.
+cd shack-api
+type to launch json server: json-server -p 8088 database.json
+
+
+Login Page
+![image](https://user-images.githubusercontent.com/81944816/124510565-b1f09180-dd99-11eb-98bc-514fd54a0c68.png)
+
+Device list page for all devices.
+![image](https://user-images.githubusercontent.com/81944816/124515251-98a11280-dda4-11eb-95ce-6411404186ea.png)
+
+Add a new device.
+![image](https://user-images.githubusercontent.com/81944816/124515285-b2daf080-dda4-11eb-9115-56b62fe84e83.png)
+
+Family members page.
+![image](https://user-images.githubusercontent.com/81944816/124515312-c38b6680-dda4-11eb-9ea7-601e65082449.png)
+
+Add a new family member.
+![image](https://user-images.githubusercontent.com/81944816/124515337-d3a34600-dda4-11eb-9433-610ba2f6b83d.png)
+
+Rooms list page.
+![image](https://user-images.githubusercontent.com/81944816/124515369-e87fd980-dda4-11eb-8a56-db06dd30520a.png)
+
+Add a new room page.
+![image](https://user-images.githubusercontent.com/81944816/124515396-fb92a980-dda4-11eb-9842-fd5ef628e786.png)
+
+And also  logout when completed.
+
+PROJECT ASSETS
+ERD
+
+Link to ERD.
+https://dbdiagram.io/d/60c0de020c1ff875fcd423b5
+![image](https://user-images.githubusercontent.com/81944816/124515604-765bc480-dda5-11eb-9809-e4ba50b0884e.png)
+
+
+
+Wireframes
+[SmartShack Wireframe.pdf](https://github.com/Nickarmani03/SmartShack-React/files/6766138/SmartShack.Wireframe.pdf)
+Link to wireframes on cloud service.
+https://wireframepro.mockflow.com/editor.jsp?editor=on&publicid=M306a86820ea21dfc613401f86a62db991623328634101&perm=Create&projectid=M2bc5c3bd74d96e9d2e3e57844ba5b0941623328676300&ptitle=SmartShack&bgcolor=white&category=web#/page/51cdda1777454edf84c5e9bd1bc64326
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![image](https://user-images.githubusercontent.com/81944816/124510565-b1f09180-dd99-11eb-98bc-514fd54a0c68.png)
+
 
 
 ## Available Scripts
