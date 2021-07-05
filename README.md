@@ -1,13 +1,24 @@
-Welcome to SmartShack, a React based app, that is used to track smart devices around your home. where anyone can use it to track thier smart devices
+Welcome to SmartShack, a React based app, that is used to track smart devices around your home. this app is extremely useful for  anyone who would want to use it to track their smart devices int hier home from anywhere. I wanted to create this app due to a real world issue I have when adding new smart devices to my home. I noticed theres no way to track my smart devices and findout where in my home they were located without going into my router settings to find the device information or going and phisically locationg the devices around my home. The SmartShack app allows the members in the home to easily sign up for the app and begin using the app to track devices that have been added. This app helps household family members (users) keep track of all their smart devices, whether they have IOS or Android, in one place. 
 
+Keeps all their devices listed cleanly and automatically when added to the home by where they device is located by allowing the user to add them to a room.
 
+Keeps all their devices listed cleanly and by the room.
 
+Allows the user to create a profile and log in.
 
+A user can also add more users if needed.
 
+Allows a user to add a room.
 
+Allows a user to add new devices.
 
+Allows the customer to delete a smart device when its no longer needed.
 
-Technologies
+Allows the user to  edit the device and change the the room where the device is listed if the device is moved.
+
+User can log out when completed.
+
+Technologies used:
 Javascript / HTML / CSS
 React
 
@@ -65,6 +76,8 @@ https://dbdiagram.io/d/60c0de020c1ff875fcd423b5
 
 
 Wireframes
+![image](https://user-images.githubusercontent.com/81944816/124515794-ec602b80-dda5-11eb-8e73-725f10145cac.png)
+
 [SmartShack Wireframe.pdf](https://github.com/Nickarmani03/SmartShack-React/files/6766138/SmartShack.Wireframe.pdf)
 Link to wireframes on cloud service.
 https://wireframepro.mockflow.com/editor.jsp?editor=on&publicid=M306a86820ea21dfc613401f86a62db991623328634101&perm=Create&projectid=M2bc5c3bd74d96e9d2e3e57844ba5b0941623328676300&ptitle=SmartShack&bgcolor=white&category=web#/page/51cdda1777454edf84c5e9bd1bc64326
