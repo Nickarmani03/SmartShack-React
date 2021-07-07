@@ -10,8 +10,8 @@ export const RoomProvider = (props) => {
 
     const getRooms = () => {
         return fetch("http://localhost:8088/rooms?_embed=members&_embed=devices") // & is a way to limit the response returned
-        .then(res => res.json())
-        .then(setRooms) //changes the variable. updates the state
+            .then(res => res.json())
+            .then(setRooms) //changes the variable. updates the state
     }
 
     const addRoom = roomObj => {
@@ -22,7 +22,7 @@ export const RoomProvider = (props) => {
             },
             body: JSON.stringify(roomObj)
         })
-        .then(getRooms)
+            .then(getRooms)
     }
     const releaseRoom = roomId => {
         return fetch(`http://localhost:8088/rooms/${roomId}`, {
@@ -33,9 +33,9 @@ export const RoomProvider = (props) => {
 
     const getRoomById = (roomId) => {
         return fetch(
-          `http://localhost:8088/rooms/${roomId}?_embed=members&_embed=devices`
+            `http://localhost:8088/rooms/${roomId}?_embed=members&_embed=devices`
         ).then((res) => res.json());
-      };
+    };
 
     /*
         You return a context provider which has the

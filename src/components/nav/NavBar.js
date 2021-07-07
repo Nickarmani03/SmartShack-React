@@ -17,9 +17,6 @@ export const NavBar = (props) => {
             <li className="navbar__item">
                 <Link className="navbar__link" to="/rooms">Rooms</Link>
             </li>
-            {/* <li className="navbar__item">
-                <Link className="navbar__link" to="/members">Members</Link>
-            </li> */}
             <li className="navbar__item">
                 <Link className="navbar__link" to="/login"
                     onClick={ //allows the user to logout by removing the current user from the local storage

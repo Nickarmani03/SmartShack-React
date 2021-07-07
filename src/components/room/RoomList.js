@@ -22,11 +22,9 @@ export const RoomList = () => {
 
     return (
         <>
-          <style>{'body { background-image: url(https://www.lefthudson.com/wp-content/uploads/2019/11/black-wood-wallpaper-elegant-35-hd-wood-wallpapers-backgrounds-for-free-download-ideas-of-black-wood-wallpaper.jpg); }'}</style> 
-           
-           <h2>Rooms</h2>
+            <h2>Rooms</h2>
             <div className="vertical-center">
-            
+
                 <button onClick={
                     () => history.push("/rooms/create")}>
                     Add New Room
@@ -41,7 +39,7 @@ export const RoomList = () => {
                                 {room.name}
                             </Link>
                         </div>
-                        
+
 
                     )
                 }

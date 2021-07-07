@@ -11,31 +11,29 @@ body,
 input,
 select,
 textarea {
-  /* color: #404040; */
   font-family: "Comfortaa", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
   background-blend-mode: overlay;
-    background-repeat: no-repeat;
-    background-size: 2050px 1000px;
-    background-attachment: fixed;
-    background-position: center;
+  background-repeat: no-repeat;
+  background-size: 2050px 1000px;
+  background-attachment: fixed;
+  background-position: center;
     
 
 }
 
 
-h2, small{
+h2, small {
   font-family: "Patua One", serif;
   letter-spacing: 2px;
   text-align: center;
   font-size: 2.5rem;
-    color: #1120f5;    
-    background-position: center;
+  color: #1120f5;    
+  background-position: center;
 }
 
-.smartshack_app {
-  
+.smartShack_app {  
     text-align: center;
     transform: translate(50%,-50%);
     font-family: "Patua One", serif;
@@ -43,26 +41,27 @@ h2, small{
     color: #f5f5f5;
     letter-spacing: 2px;
     text-shadow: 1px 1px 1px #1120f5,
-        1px 2px 1px #1120f5,
-        1px 3px 1px #1120f5,
-        1px 4px 1px #1120f5,
-        1px 5px 1px #1120f5,
-        1px 6px 1px #1120f5,
-        1px 7px 1px #1120f5,
-        1px 8px 1px #1120f5,
-        1px 9px 1px #1120f5,
-        1px 10px 1px #1120f5,
+    1px 2px 1px #1120f5,
+    1px 3px 1px #1120f5,
+    1px 4px 1px #1120f5,
+    1px 5px 1px #1120f5,
+    1px 6px 1px #1120f5,
+    1px 7px 1px #1120f5,
+    1px 8px 1px #1120f5,
+    1px 9px 1px #1120f5,
+    1px 10px 1px #1120f5,
     1px 18px 6px rgba(16,16,16,0.4),
     1px 22px 10px rgba(16,16,16,0.2),
     1px 25px 35px rgba(16,16,16,0.2),
     1px 30px 60px rgba(16,16,16,0.4);
-    /* padding: 0.5rem 0;*/
     margin: 32;
     margin-bottom: 0px;
     border: 0; 
     width:950px;
-    margin-top: 60px;
-    
+    margin-top: 60px; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center
 }
 
 h3 {
@@ -74,29 +73,26 @@ h3 {
 h2 {
   color: #f5f5f5;
   text-shadow: 1px 1px 1px #1120f5,
-        1px 2px 1px #1120f5,
-        1px 3px 1px #1120f5,
-        1px 4px 1px #1120f5,
-        1px 5px 1px #1120f5,
-        1px 6px 1px #1120f5,
-        1px 7px 1px #1120f5,
-        1px 8px 1px #1120f5,
-        1px 9px 1px #1120f5,
-        1px 10px 1px #1120f5,
-    1px 18px 6px rgba(16,16,16,0.4),
-    1px 22px 10px rgba(16,16,16,0.2),
-    1px 25px 35px rgba(16,16,16,0.2),
-    1px 30px 60px rgba(16,16,16,0.4);
-    border-radius: 10px;
-    background-color: black;
-    background: center;
-    /* opacity: .8; */
-    margin:0;
-    height: 1;
-    margin-bottom: 20px;
-  
+  1px 2px 1px #1120f5,
+  1px 3px 1px #1120f5,
+  1px 4px 1px #1120f5,
+  1px 5px 1px #1120f5,
+  1px 6px 1px #1120f5,
+  1px 7px 1px #1120f5,
+  1px 8px 1px #1120f5,
+  1px 9px 1px #1120f5,
+  1px 10px 1px #1120f5,
+  1px 18px 6px rgba(16,16,16,0.4),
+  1px 22px 10px rgba(16,16,16,0.2),
+  1px 25px 35px rgba(16,16,16,0.2),
+  1px 30px 60px rgba(16,16,16,0.4);
+  border-radius: 10px;
+  background-color: black;
+  background: center;
+  margin:0;
+  height: 1;
+  margin-bottom: 20px;  
 }
-
 
 strong {
   font-weight: bold;
@@ -108,7 +104,6 @@ strong {
 
 .device {
   text-align: center;
-  /* color: #404040; */
   font-family: "Comfortaa", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.
@@ -116,13 +111,10 @@ strong {
 
 .vertical-center {
   text-align: center;
-  /* color: #404040; */
   font-family: "Comfortaa", Arial, sans-serif;
   font-size: 4px;
   line-height: 1.
 }
-
-
 
 .root{
   padding-bottom: 20px;

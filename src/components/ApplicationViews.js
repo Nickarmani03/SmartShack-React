@@ -28,7 +28,7 @@ export const ApplicationViews = () => {
             <DeviceProvider>
                 <MemberProvider>
                     <RoomProvider>
-                       
+
 
                         <Route exact path="/devices/create">
                             <DeviceForm />
@@ -62,6 +62,10 @@ export const ApplicationViews = () => {
                         </Route>
 
                         <Route exact path="/members/create">
+                            <MemberForm />
+                        </Route>
+
+                        <Route path="/members/edit/:memberId(\d+)">
                             <MemberForm />
                         </Route>
 

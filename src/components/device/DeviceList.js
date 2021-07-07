@@ -10,9 +10,9 @@ export const DeviceList = () => {
     //these are methods from DeviceContext provider.
     const { devices, getDevices, searchTerms } = useContext(DeviceContext)  // useContext hook allows you to use data structures and functions that a parent provider component exposes.
     //DeviceContext is an arguement
-    //deconstructs objects from the context from the provider.js
+    //deconstructs objects from the context from the provider.js rerenders every time it changes. 
 
-  
+
     // Since you are no longer ALWAYS displaying all of the devices
     const [filteredDevices, setFiltered] = useState([]) // state variable
     //useState always returns an array with 2 values.the first is state. filtered devices.
@@ -22,10 +22,10 @@ export const DeviceList = () => {
 
     const history = useHistory()//the url is happening outside this component
 
- 
+
     // Empty dependency array - this useEffect only runs after first render
     useEffect(() => {
-        getDevices() 
+        getDevices() //invoked
     }, []) // fetch call pulls from API
 
 
@@ -36,7 +36,7 @@ export const DeviceList = () => {
             // If the search field is not blank, display matching devices
             const subset = devices.filter(device => device.name.toLowerCase().includes(searchTerms.toLowerCase()) //tolowercase allows for the app to search partial words also. in searchterms it allows it to search any case upper or lowercase
 
-            //filter returns an array of objects with the matching results
+                //filter returns an array of objects with the matching results
             )
             setFiltered(subset)
         } else {
@@ -45,7 +45,7 @@ export const DeviceList = () => {
         }
     }, [searchTerms, devices])
 
-//returns the JSX. use an explicit return return()
+    //returns the JSX. use an explicit return return()
     return (// for <>  JSX expressions can only return one JSX componet for every function. cannot do 2 siblings. you need to use a empty component called a fragment. an unnamed element.
         //.map inside of JSX when you need to iterate an array of objects and convert them into an array of JSX. passed to an device object
         // no dollar signs needed to interpolate in JSX {device.type}
@@ -57,7 +57,6 @@ export const DeviceList = () => {
                     Add New Device
                 </button>
             </div>
-
             <section className="devices">
                 {
                     filteredDevices.map(device => {

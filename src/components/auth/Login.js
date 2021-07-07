@@ -6,7 +6,6 @@ import "./Login.css"
 
 export const Login = props => {
     const email = useRef()
-    // const password = useRef()
     const existDialog = useRef()
     const history = useHistory()
 
@@ -32,7 +31,6 @@ export const Login = props => {
 
     return (
         <main className="container--login">
-            <style>{'body { background-image: url(https://www.lefthudson.com/wp-content/uploads/2019/11/black-wood-wallpaper-elegant-35-hd-wood-wallpapers-backgrounds-for-free-download-ideas-of-black-wood-wallpaper.jpg); }'}</style> 
             <dialog className="dialog dialog--auth" ref={existDialog}>
                 <div>User does not exist</div>
                 <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
@@ -41,8 +39,8 @@ export const Login = props => {
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
                     <div className="form--title">
-                    <div className="smartshack_login">SmartShack</div>
-                    <h2>Please sign in</h2>
+                        <div className="smartshack_login">SmartShack</div>
+                        <h2>Please sign in</h2>
                     </div>
                     <fieldset>
                         <label className="inputEmail">  (  Email address  )</label>

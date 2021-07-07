@@ -9,14 +9,14 @@ export const DeviceSearch = () => {
 
   return (
     <>
-    <div className="vertical-center">
+      <div className="vertical-center">
         <div className="inputSearch">
-      Device search:</div>
-      <input type="text"
-        className="input--search--box"
-        onKeyUp={(event) => setSearchTerms(event.target.value)}
-        placeholder="Search for a device... " />
-        </div>
+          Device search:</div>
+        <input type="text"
+          className="input--search--box"
+          onKeyUp={(event) => setSearchTerms(event.target.value)}
+          placeholder="Search for a device... " />
+      </div>
     </>
   )
 }
