@@ -1,38 +1,11 @@
-Welcome to SmartShack, a React based app, that is used to track smart devices around your home. where anyone can use it to track thier smart devices
-
-
-
-
-
-
-
-
-Technologies
-Javascript / HTML / CSS
-React
-
-
-First clone this repository, git clone git@github.com:Nickarmani03/SmartShack-React.git
-Then, to launch the app in React:
-Open a terminal window and cd into the SmartShack directory.
-cd smart-shack
-npm install
-
-Starting the application in React
-Open a terminal window and cd into the SmartShack directory.
-cd src
-npm start
-
-Then clone this repository for the matching API, git clone git@github.com:Nickarmani03/SmartShack-API.git
-Starting the API
-Open a terminal window and cd into the Shack-API directory.
-
-
 
 
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
+
 
 ## Available Scripts
 
