@@ -1,3 +1,7 @@
+SMARTSHACK-REACT
+
+SmartShack is a smart home app that was designed to be used by family members in an in-home environment. It’s designed to show a list of all smart devices currently connected to Wi-Fi that are added by any user. After making a profile and signing up, all devices added to the app are shown by all users according to the room location that the devices are located in. The app is designed to only let the user who posted the device to the application to be able to edit or delete the device. You can customize rooms as well as customize your own profile as well.
+I created SmartShack as an exercise for a remote learning project. It consists of a solo built CRUD application that utilizes ReactJS, JavaScript, HTML, and CSS with a custom-built API.
 
 
 # Getting Started with Create React App
